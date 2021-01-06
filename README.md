@@ -60,6 +60,6 @@ eMag app clone
 * [ ] edit profile (15')
 * [ ] choose what notifications to receive
 * [ ] notifications (35')
-    * [ ] a favorite product is on sale
+        * [ ] a favorite product is on sale
     * [ ] someone commented on your review
     * [ ] someone liked your review
