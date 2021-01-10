@@ -9,6 +9,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   AppState._();
 
+  AuthState get auth;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<AppState> get serializer => _$appStateSerializer;
