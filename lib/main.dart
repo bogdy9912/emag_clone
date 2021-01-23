@@ -1,6 +1,6 @@
 import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/presentations/mixin/init_mixin.dart';
-import 'package:emag_clone/src/presentations/routes.dart';
+import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
@@ -26,7 +26,7 @@ class _EmagCloneState extends State<EmagClone> with InitMixin<EmagClone> {
               store: store,
               child: MaterialApp(
                 theme: ThemeData.dark(),
-                routes: Routes.routes,
+                routes: AppRoutes.routes,
               ),
             );
           }
