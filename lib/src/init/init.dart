@@ -4,13 +4,17 @@ import 'package:emag_clone/src/epics/app_epics.dart';
 import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/reducer/reducer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
 
 Future<Store<AppState>> init() async {
 
+  await Firebase.initializeApp();
+
   final AuthApi _authApi= AuthApi(firestore: FirebaseFirestore.instance, auth: FirebaseAuth.instance);
   final AppEpics epic = AppEpics(api: _authApi);
+
   return Store<AppState>(
     reducer,
     initialState: AppState.initialState(),

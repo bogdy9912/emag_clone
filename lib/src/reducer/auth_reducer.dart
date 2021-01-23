@@ -2,7 +2,7 @@ import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
 import 'package:redux/redux.dart';
 
-Reducer<AuthState> reducer =
+Reducer<AuthState> authReducer =
     combineReducers(<Reducer<AuthState>>[TypedReducer<AuthState, LoginSuccessful>(_loginSuccessful)]);
 
 AuthState _loginSuccessful(AuthState state, LoginSuccessful action) {

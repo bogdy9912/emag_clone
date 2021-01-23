@@ -6,7 +6,7 @@ class Routes{
   static String home = '/';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context){
-      return Home();
+      return const Home();
     }
   };
 }

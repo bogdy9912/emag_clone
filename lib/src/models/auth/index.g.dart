@@ -8,6 +8,8 @@ part of auth_models;
 
 Serializer<AppUser> _$appUserSerializer = new _$AppUserSerializer();
 Serializer<AuthState> _$authStateSerializer = new _$AuthStateSerializer();
+Serializer<RegistrationInfo> _$registrationInfoSerializer =
+    new _$RegistrationInfoSerializer();
 
 class _$AppUserSerializer implements StructuredSerializer<AppUser> {
   @override
@@ -104,6 +106,48 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
         case 'user':
           result.user.replace(serializers.deserialize(value,
               specifiedType: const FullType(AppUser)) as AppUser);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RegistrationInfoSerializer
+    implements StructuredSerializer<RegistrationInfo> {
+  @override
+  final Iterable<Type> types = const [RegistrationInfo, _$RegistrationInfo];
+  @override
+  final String wireName = 'RegistrationInfo';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers, RegistrationInfo object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'displayedName',
+      serializers.serialize(object.displayedName,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RegistrationInfo deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new RegistrationInfoBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'displayedName':
+          result.displayedName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -311,6 +355,88 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$RegistrationInfo extends RegistrationInfo {
+  @override
+  final String displayedName;
+
+  factory _$RegistrationInfo(
+          [void Function(RegistrationInfoBuilder) updates]) =>
+      (new RegistrationInfoBuilder()..update(updates)).build();
+
+  _$RegistrationInfo._({this.displayedName}) : super._() {
+    if (displayedName == null) {
+      throw new BuiltValueNullFieldError('RegistrationInfo', 'displayedName');
+    }
+  }
+
+  @override
+  RegistrationInfo rebuild(void Function(RegistrationInfoBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RegistrationInfoBuilder toBuilder() =>
+      new RegistrationInfoBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RegistrationInfo && displayedName == other.displayedName;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, displayedName.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('RegistrationInfo')
+          ..add('displayedName', displayedName))
+        .toString();
+  }
+}
+
+class RegistrationInfoBuilder
+    implements Builder<RegistrationInfo, RegistrationInfoBuilder> {
+  _$RegistrationInfo _$v;
+
+  String _displayedName;
+  String get displayedName => _$this._displayedName;
+  set displayedName(String displayedName) =>
+      _$this._displayedName = displayedName;
+
+  RegistrationInfoBuilder();
+
+  RegistrationInfoBuilder get _$this {
+    if (_$v != null) {
+      _displayedName = _$v.displayedName;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(RegistrationInfo other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$RegistrationInfo;
+  }
+
+  @override
+  void update(void Function(RegistrationInfoBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$RegistrationInfo build() {
+    final _$result =
+        _$v ?? new _$RegistrationInfo._(displayedName: displayedName);
     replace(_$result);
     return _$result;
   }
