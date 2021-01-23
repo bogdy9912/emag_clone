@@ -19,6 +19,7 @@ class AuthEpics {
       TypedEpic<AppState, Login$>(_login),
       TypedEpic<AppState, SignUp$>(_signUp),
       TypedEpic<AppState, ResetPassword$>(_resetPassword),
+      TypedEpic<AppState, SignOut$>(_signOut),
     ]);
   }
 
@@ -48,5 +49,12 @@ class AuthEpics {
         .asyncMap((ResetPassword$ action) => _auth.resetPassword(email: action.email))
         .map((_) => const ResetPassword.successful())
         .onErrorReturnWith((dynamic error) => ResetPassword.error(error)));
+  }
+
+  Stream<AppAction> _signOut(Stream<SignOut$> actions, EpicStore<AppState> store) {
+    return actions.flatMap((SignOut$ action) => Stream<SignOut$>.value(action)
+        .asyncMap((SignOut$ action) => _auth.signOut())
+        .map((_) => const SignOut.successful())
+        .onErrorReturnWith((dynamic error) => SignOut.error(error)));
   }
 }

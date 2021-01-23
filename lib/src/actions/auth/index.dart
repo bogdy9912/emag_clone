@@ -14,3 +14,4 @@ part 'reset_password.dart';
 part 'set.dart';
 
 part 'sign_up.dart';
+part 'sign_out.dart';
