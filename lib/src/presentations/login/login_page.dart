@@ -63,6 +63,16 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
                     ),
+                    Row(
+                      children: <Widget>[
+                        const Spacer(),
+                        FlatButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, AppRoutes.resetPassword);
+                            },
+                            child: const Text('Forgot password')),
+                      ],
+                    ),
                     const Spacer(),
                     FlatButton(
                       onPressed: () {
@@ -79,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Text.rich(
                       TextSpan(
-                        text: 'Don\'t have an account?',
+                        text: 'Don\'t have an account? ',
                         children: <TextSpan>[
                           TextSpan(
                               text: 'SignUp',

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 class AuthApi {
@@ -34,5 +33,9 @@ class AuthApi {
     await _firestore.doc('users/${newUser.uid}').set(newUser.json);
 
     return newUser;
+  }
+
+  Future<void> resetPassword({@required String email}) async {
+    await _auth.sendPasswordResetEmail(email: email);
   }
 }

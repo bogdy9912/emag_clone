@@ -14,7 +14,7 @@ eMag app clone
 * [ ] login/register with google (25')
 * [ ] login/register with apple (25')
 * [ ] logout (10')
-* [ ] forgot password (10')
+* [x] forgot password (10')
 
 ## HomePage (120')
 * [ ] search products (15')
