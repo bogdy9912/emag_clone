@@ -25,7 +25,7 @@ class _EmagCloneState extends State<EmagClone> with InitMixin<EmagClone> {
             return StoreProvider<AppState>(
               store: store,
               child: MaterialApp(
-                theme: ThemeData.dark(),
+                theme: ThemeData.light(),
                 routes: AppRoutes.routes,
               ),
             );

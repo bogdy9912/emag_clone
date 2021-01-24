@@ -1,22 +1,91 @@
-import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/products/index.dart';
 import 'package:emag_clone/src/models/index.dart';
+import 'package:emag_clone/src/presentations/products/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage();
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _page = 0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_page == 0) {
+      StoreProvider.of<AppState>(context).dispatch(const GetProducts());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomePage'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.power_settings_new),
-            onPressed: () {
-              StoreProvider.of<AppState>(context).dispatch(const SignOut());
-            },
+      body: <Widget>[
+        const ProductsPage(),
+        Container(
+          color: Colors.green,
+        ),
+        Container(
+          color: Colors.grey,
+        ),
+        Container(
+          color: Colors.blue,
+        ),
+        Container(
+          color: Colors.purple,
+        ),
+      ][_page],
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.black,
+        currentIndex: _page,
+        onTap: (int position) {
+          if (position == 0) {
+            StoreProvider.of<AppState>(context).dispatch(const GetProducts());
+          }
+          setState(() {
+            _page = position;
+          });
+        },
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            label: 'home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+            label: 'search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Colors.black,
+            ),
+            label: 'cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            label: 'home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_circle,
+              color: Colors.black,
+            ),
+            label: 'profile',
           ),
         ],
       ),
