@@ -5,9 +5,13 @@ import 'package:redux/redux.dart';
 
 Reducer<ProductsState> productsReducer = combineReducers(<Reducer<ProductsState>>[
   TypedReducer<ProductsState, GetProductsSuccessful>(_getProductsSuccessful),
+  TypedReducer<ProductsState, SearchProductsSuccessful>(_searchProductsSuccessful),
 ]);
 
 ProductsState _getProductsSuccessful(ProductsState state, GetProductsSuccessful action) {
-
   return state.rebuild((ProductsStateBuilder b) => b.products = ListBuilder<Product>(action.products));
+}
+
+ProductsState _searchProductsSuccessful(ProductsState state, SearchProductsSuccessful action) {
+  return state.rebuild((ProductsStateBuilder b) => b.searchResult = ListBuilder<Product>(action.products));
 }

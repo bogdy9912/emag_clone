@@ -151,6 +151,10 @@ class _$ProductsStateSerializer implements StructuredSerializer<ProductsState> {
       serializers.serialize(object.products,
           specifiedType:
               const FullType(BuiltList, const [const FullType(Product)])),
+      'searchResult',
+      serializers.serialize(object.searchResult,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(Product)])),
     ];
 
     return result;
@@ -170,6 +174,12 @@ class _$ProductsStateSerializer implements StructuredSerializer<ProductsState> {
       switch (key) {
         case 'products':
           result.products.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Product)]))
+              as BuiltList<Object>);
+          break;
+        case 'searchResult':
+          result.searchResult.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(Product)]))
               as BuiltList<Object>);
@@ -428,13 +438,18 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
 class _$ProductsState extends ProductsState {
   @override
   final BuiltList<Product> products;
+  @override
+  final BuiltList<Product> searchResult;
 
   factory _$ProductsState([void Function(ProductsStateBuilder) updates]) =>
       (new ProductsStateBuilder()..update(updates)).build();
 
-  _$ProductsState._({this.products}) : super._() {
+  _$ProductsState._({this.products, this.searchResult}) : super._() {
     if (products == null) {
       throw new BuiltValueNullFieldError('ProductsState', 'products');
+    }
+    if (searchResult == null) {
+      throw new BuiltValueNullFieldError('ProductsState', 'searchResult');
     }
   }
 
@@ -448,18 +463,21 @@ class _$ProductsState extends ProductsState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ProductsState && products == other.products;
+    return other is ProductsState &&
+        products == other.products &&
+        searchResult == other.searchResult;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, products.hashCode));
+    return $jf($jc($jc(0, products.hashCode), searchResult.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('ProductsState')
-          ..add('products', products))
+          ..add('products', products)
+          ..add('searchResult', searchResult))
         .toString();
   }
 }
@@ -473,11 +491,18 @@ class ProductsStateBuilder
       _$this._products ??= new ListBuilder<Product>();
   set products(ListBuilder<Product> products) => _$this._products = products;
 
+  ListBuilder<Product> _searchResult;
+  ListBuilder<Product> get searchResult =>
+      _$this._searchResult ??= new ListBuilder<Product>();
+  set searchResult(ListBuilder<Product> searchResult) =>
+      _$this._searchResult = searchResult;
+
   ProductsStateBuilder();
 
   ProductsStateBuilder get _$this {
     if (_$v != null) {
       _products = _$v.products?.toBuilder();
+      _searchResult = _$v.searchResult?.toBuilder();
       _$v = null;
     }
     return this;
@@ -500,12 +525,16 @@ class ProductsStateBuilder
   _$ProductsState build() {
     _$ProductsState _$result;
     try {
-      _$result = _$v ?? new _$ProductsState._(products: products.build());
+      _$result = _$v ??
+          new _$ProductsState._(
+              products: products.build(), searchResult: searchResult.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'products';
         products.build();
+        _$failedField = 'searchResult';
+        searchResult.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'ProductsState', _$failedField, e.toString());

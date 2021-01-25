@@ -1,9 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:built_collection/built_collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emag_clone/src/models/products/index.dart';
+
+import './src/data/search_index.dart';
 
 Future<void> main() async {
   List<Map<String, dynamic>> bd = <Map<String, dynamic>>[
@@ -44,10 +43,7 @@ Future<void> main() async {
       "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
     },
   ];
-/*
-  final String data = File('E:\\GitFolder\\emag_clone\\products.json').readAsStringSync();
-  final List<dynamic> products = jsonDecode(data);
-*/
+
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   for (dynamic item in bd) {
@@ -66,7 +62,8 @@ Future<void> main() async {
           item['image'],
         ])
         ..review = 0.0
-        ..productState = ProductState.inStock;
+        ..productState = ProductState.inStock
+        ..searchIndex =ListBuilder<String>(<String>[item['title']].searchIndex);
     });
     await ref.set(product.json);
   }

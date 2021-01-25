@@ -425,3 +425,449 @@ abstract class GetProductsError implements GetProducts, ErrorAction {
   Object get error;
   $GetProductsErrorCopyWith<GetProductsError> get copyWith;
 }
+
+/// @nodoc
+class _$SearchProductsTearOff {
+  const _$SearchProductsTearOff();
+
+// ignore: unused_element
+  SearchProducts$ call(String query) {
+    return SearchProducts$(
+      query,
+    );
+  }
+
+// ignore: unused_element
+  SearchProductsSuccessful successful(List<Product> products) {
+    return SearchProductsSuccessful(
+      products,
+    );
+  }
+
+// ignore: unused_element
+  SearchProductsError error(Object error) {
+    return SearchProductsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SearchProducts = _$SearchProductsTearOff();
+
+/// @nodoc
+mixin _$SearchProducts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<Product> products),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<Product> products),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    @required Result successful(SearchProductsSuccessful value),
+    @required Result error(SearchProductsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    Result successful(SearchProductsSuccessful value),
+    Result error(SearchProductsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $SearchProductsCopyWith<$Res> {
+  factory $SearchProductsCopyWith(
+          SearchProducts value, $Res Function(SearchProducts) then) =
+      _$SearchProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SearchProductsCopyWithImpl<$Res>
+    implements $SearchProductsCopyWith<$Res> {
+  _$SearchProductsCopyWithImpl(this._value, this._then);
+
+  final SearchProducts _value;
+  // ignore: unused_field
+  final $Res Function(SearchProducts) _then;
+}
+
+/// @nodoc
+abstract class $SearchProducts$CopyWith<$Res> {
+  factory $SearchProducts$CopyWith(
+          SearchProducts$ value, $Res Function(SearchProducts$) then) =
+      _$SearchProducts$CopyWithImpl<$Res>;
+  $Res call({String query});
+}
+
+/// @nodoc
+class _$SearchProducts$CopyWithImpl<$Res>
+    extends _$SearchProductsCopyWithImpl<$Res>
+    implements $SearchProducts$CopyWith<$Res> {
+  _$SearchProducts$CopyWithImpl(
+      SearchProducts$ _value, $Res Function(SearchProducts$) _then)
+      : super(_value, (v) => _then(v as SearchProducts$));
+
+  @override
+  SearchProducts$ get _value => super._value as SearchProducts$;
+
+  @override
+  $Res call({
+    Object query = freezed,
+  }) {
+    return _then(SearchProducts$(
+      query == freezed ? _value.query : query as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SearchProducts$ implements SearchProducts$ {
+  const _$SearchProducts$(this.query) : assert(query != null);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'SearchProducts(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchProducts$ &&
+            (identical(other.query, query) ||
+                const DeepCollectionEquality().equals(other.query, query)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(query);
+
+  @override
+  $SearchProducts$CopyWith<SearchProducts$> get copyWith =>
+      _$SearchProducts$CopyWithImpl<SearchProducts$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<Product> products),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<Product> products),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    @required Result successful(SearchProductsSuccessful value),
+    @required Result error(SearchProductsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    Result successful(SearchProductsSuccessful value),
+    Result error(SearchProductsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchProducts$ implements SearchProducts {
+  const factory SearchProducts$(String query) = _$SearchProducts$;
+
+  String get query;
+  $SearchProducts$CopyWith<SearchProducts$> get copyWith;
+}
+
+/// @nodoc
+abstract class $SearchProductsSuccessfulCopyWith<$Res> {
+  factory $SearchProductsSuccessfulCopyWith(SearchProductsSuccessful value,
+          $Res Function(SearchProductsSuccessful) then) =
+      _$SearchProductsSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<Product> products});
+}
+
+/// @nodoc
+class _$SearchProductsSuccessfulCopyWithImpl<$Res>
+    extends _$SearchProductsCopyWithImpl<$Res>
+    implements $SearchProductsSuccessfulCopyWith<$Res> {
+  _$SearchProductsSuccessfulCopyWithImpl(SearchProductsSuccessful _value,
+      $Res Function(SearchProductsSuccessful) _then)
+      : super(_value, (v) => _then(v as SearchProductsSuccessful));
+
+  @override
+  SearchProductsSuccessful get _value =>
+      super._value as SearchProductsSuccessful;
+
+  @override
+  $Res call({
+    Object products = freezed,
+  }) {
+    return _then(SearchProductsSuccessful(
+      products == freezed ? _value.products : products as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SearchProductsSuccessful implements SearchProductsSuccessful {
+  const _$SearchProductsSuccessful(this.products) : assert(products != null);
+
+  @override
+  final List<Product> products;
+
+  @override
+  String toString() {
+    return 'SearchProducts.successful(products: $products)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchProductsSuccessful &&
+            (identical(other.products, products) ||
+                const DeepCollectionEquality()
+                    .equals(other.products, products)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(products);
+
+  @override
+  $SearchProductsSuccessfulCopyWith<SearchProductsSuccessful> get copyWith =>
+      _$SearchProductsSuccessfulCopyWithImpl<SearchProductsSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<Product> products),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<Product> products),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(products);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    @required Result successful(SearchProductsSuccessful value),
+    @required Result error(SearchProductsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    Result successful(SearchProductsSuccessful value),
+    Result error(SearchProductsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchProductsSuccessful implements SearchProducts {
+  const factory SearchProductsSuccessful(List<Product> products) =
+      _$SearchProductsSuccessful;
+
+  List<Product> get products;
+  $SearchProductsSuccessfulCopyWith<SearchProductsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $SearchProductsErrorCopyWith<$Res> {
+  factory $SearchProductsErrorCopyWith(
+          SearchProductsError value, $Res Function(SearchProductsError) then) =
+      _$SearchProductsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$SearchProductsErrorCopyWithImpl<$Res>
+    extends _$SearchProductsCopyWithImpl<$Res>
+    implements $SearchProductsErrorCopyWith<$Res> {
+  _$SearchProductsErrorCopyWithImpl(
+      SearchProductsError _value, $Res Function(SearchProductsError) _then)
+      : super(_value, (v) => _then(v as SearchProductsError));
+
+  @override
+  SearchProductsError get _value => super._value as SearchProductsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(SearchProductsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$SearchProductsError implements SearchProductsError {
+  const _$SearchProductsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'SearchProducts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchProductsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $SearchProductsErrorCopyWith<SearchProductsError> get copyWith =>
+      _$SearchProductsErrorCopyWithImpl<SearchProductsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<Product> products),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<Product> products),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    @required Result successful(SearchProductsSuccessful value),
+    @required Result error(SearchProductsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchProducts$ value), {
+    Result successful(SearchProductsSuccessful value),
+    Result error(SearchProductsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchProductsError implements SearchProducts, ErrorAction {
+  const factory SearchProductsError(Object error) = _$SearchProductsError;
+
+  Object get error;
+  $SearchProductsErrorCopyWith<SearchProductsError> get copyWith;
+}

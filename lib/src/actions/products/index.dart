@@ -6,3 +6,4 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'index.freezed.dart';
 part 'get_products.dart';
+part 'search_products.dart';

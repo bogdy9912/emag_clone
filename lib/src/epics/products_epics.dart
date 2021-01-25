@@ -17,15 +17,24 @@ class ProductsEpics {
   Epic<AppState> get epics {
     return combineEpics(<Epic<AppState>>[
       TypedEpic<AppState, GetProducts$>(_getProducts),
+      TypedEpic<AppState, SearchProducts$>(_searchProducts),
     ]);
   }
 
   Stream<AppAction> _getProducts(Stream<GetProducts$> actions, EpicStore<AppState> store) {
-
     return actions //
         .flatMap((GetProducts$ action) => Stream<GetProducts$>.value(action)
             .asyncMap((GetProducts$ event) => _api.getProducts())
             .map((List<Product> products) => GetProducts.successful(products))
             .onErrorReturnWith((dynamic error) => GetProducts.error(error)));
+  }
+
+  Stream<AppAction> _searchProducts(Stream<SearchProducts$> actions, EpicStore<AppState> store) {
+    return actions //
+        .debounceTime(const Duration(milliseconds: 500))
+        .switchMap((SearchProducts$ action) => Stream<SearchProducts$>.value(action)
+            .asyncMap((SearchProducts$ action) => _api.searchProduct(action.query))
+            .map((List<Product> products) => SearchProducts.successful(products))
+            .onErrorReturnWith((dynamic error) => SearchProducts.error(error)));
   }
 }

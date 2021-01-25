@@ -17,4 +17,15 @@ class ProductsApi {
 
     return productList;
   }
+
+  Future<List<Product>> searchProduct(String query) async {
+    final QuerySnapshot querySnapshot =
+        await _firestore.collection('products').where('searchIndex', arrayContains: query).get();
+
+    final List<QueryDocumentSnapshot> docs = querySnapshot.docs;
+
+    final List<Product> searchResult = docs.map((QueryDocumentSnapshot e) => Product.fromJson(e.data())).toList();
+
+    return searchResult;
+  }
 }
