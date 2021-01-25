@@ -1,5 +1,6 @@
 import 'package:emag_clone/src/actions/products/index.dart';
 import 'package:emag_clone/src/models/index.dart';
+import 'package:emag_clone/src/presentations/cart/cart_page.dart';
 import 'package:emag_clone/src/presentations/products/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -30,9 +31,7 @@ class _HomePageState extends State<HomePage> {
         Container(
           color: Colors.green,
         ),
-        Container(
-          color: Colors.grey,
-        ),
+        const CartPage(),
         Container(
           color: Colors.blue,
         ),

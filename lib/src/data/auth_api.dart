@@ -38,7 +38,12 @@ class AuthApi {
   Future<void> resetPassword({@required String email}) async {
     await _auth.sendPasswordResetEmail(email: email);
   }
+
   Future<void> signOut() async {
     await _auth.signOut();
+  }
+
+  Future<void> updateCart(String uid, Cart cart) async {
+    await _firestore.doc('users/$uid').update(<String, dynamic>{'cart': cart.json});
   }
 }

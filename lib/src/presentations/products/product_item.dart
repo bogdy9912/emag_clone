@@ -1,6 +1,10 @@
+import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/index.dart';
+import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({Key key, this.product}) : super(key: key);
@@ -31,6 +35,13 @@ class ProductItem extends StatelessWidget {
       return Colors.red;
     } else {
       throw FallThroughError();
+    }
+  }
+
+  void _response(AppAction action) {
+    if (action is SynchronizeCartError) {
+      //eroare
+      
     }
   }
 
@@ -124,9 +135,13 @@ class ProductItem extends StatelessWidget {
                                 borderRadius: BorderRadius.all(Radius.circular(12)),
                               ),
                             ),
-                            const Icon(
-                              Icons.add_shopping_cart,
+                            IconButton(
+                              icon: const Icon(Icons.add_shopping_cart),
                               color: Colors.white,
+                              onPressed: () {
+                                StoreProvider.of<AppState>(context).dispatch(UpdateCart(addProduct: product.id));
+                                StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
+                              },
                             ),
                           ],
                         ),

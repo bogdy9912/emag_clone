@@ -19,7 +19,7 @@ eMag app clone
 ## HomePage (120')
 * [x] search products (15')
 * [ ] highlight products per category (25')
-* [ ] add products to cart (10')
+* [x] add products to cart (10')
 * [ ] show all products from a category (25')
 * [ ] filter and sorting (35')
 * [ ] presentation layout (list, grid, hero) (10')
@@ -40,7 +40,7 @@ eMag app clone
 * [ ] presentation layout (list, grid, hero) (10')
 
 ## Shopping cart (65')
-* [ ] show all products (15')
+* [x] show all products (15')
 * [ ] add voucher (15')
 * [ ] show total amount (10')
 * [ ] redirect to **Search + Categories** if cart is empty (10')

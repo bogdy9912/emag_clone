@@ -1,3 +1,4 @@
+import 'package:emag_clone/src/presentations/cart/cart_page.dart';
 import 'package:emag_clone/src/presentations/home.dart';
 import 'package:emag_clone/src/presentations/login/reset_password_page.dart';
 import 'package:emag_clone/src/presentations/sign_up/displayed_name_page.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
   static String displayedName = '/displayedName';
   static String resetPassword = '/resetPassword';
   static String searchPage = '/searchPage';
+  static String cartPage = '/cartPage';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUpEmail: (BuildContext context) => const EmailPage(),
@@ -22,5 +24,6 @@ class AppRoutes {
     displayedName: (BuildContext context) => const DisplayedNamePage(),
     resetPassword: (BuildContext context) => const ResetPasswordPage(),
     searchPage: (BuildContext context) => const SearchPage(),
+    cartPage: (BuildContext context) => const CartPage(),
   };
 }

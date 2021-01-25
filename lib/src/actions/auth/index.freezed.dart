@@ -1059,6 +1059,389 @@ abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
 }
 
 /// @nodoc
+class _$SignOutTearOff {
+  const _$SignOutTearOff();
+
+// ignore: unused_element
+  SignOut$ call() {
+    return const SignOut$();
+  }
+
+// ignore: unused_element
+  SignOutSuccessful successful() {
+    return const SignOutSuccessful();
+  }
+
+// ignore: unused_element
+  SignOutError error(StateError error) {
+    return SignOutError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SignOut = _$SignOutTearOff();
+
+/// @nodoc
+mixin _$SignOut {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(StateError error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(StateError error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $SignOutCopyWith<$Res> {
+  factory $SignOutCopyWith(SignOut value, $Res Function(SignOut) then) =
+      _$SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOutCopyWithImpl<$Res> implements $SignOutCopyWith<$Res> {
+  _$SignOutCopyWithImpl(this._value, this._then);
+
+  final SignOut _value;
+  // ignore: unused_field
+  final $Res Function(SignOut) _then;
+}
+
+/// @nodoc
+abstract class $SignOut$CopyWith<$Res> {
+  factory $SignOut$CopyWith(SignOut$ value, $Res Function(SignOut$) then) =
+      _$SignOut$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOut$CopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOut$CopyWith<$Res> {
+  _$SignOut$CopyWithImpl(SignOut$ _value, $Res Function(SignOut$) _then)
+      : super(_value, (v) => _then(v as SignOut$));
+
+  @override
+  SignOut$ get _value => super._value as SignOut$;
+}
+
+/// @nodoc
+class _$SignOut$ implements SignOut$ {
+  const _$SignOut$();
+
+  @override
+  String toString() {
+    return 'SignOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignOut$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(StateError error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(StateError error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOut$ implements SignOut {
+  const factory SignOut$() = _$SignOut$;
+}
+
+/// @nodoc
+abstract class $SignOutSuccessfulCopyWith<$Res> {
+  factory $SignOutSuccessfulCopyWith(
+          SignOutSuccessful value, $Res Function(SignOutSuccessful) then) =
+      _$SignOutSuccessfulCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOutSuccessfulCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOutSuccessfulCopyWith<$Res> {
+  _$SignOutSuccessfulCopyWithImpl(
+      SignOutSuccessful _value, $Res Function(SignOutSuccessful) _then)
+      : super(_value, (v) => _then(v as SignOutSuccessful));
+
+  @override
+  SignOutSuccessful get _value => super._value as SignOutSuccessful;
+}
+
+/// @nodoc
+class _$SignOutSuccessful implements SignOutSuccessful {
+  const _$SignOutSuccessful();
+
+  @override
+  String toString() {
+    return 'SignOut.successful()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignOutSuccessful);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(StateError error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(StateError error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutSuccessful implements SignOut {
+  const factory SignOutSuccessful() = _$SignOutSuccessful;
+}
+
+/// @nodoc
+abstract class $SignOutErrorCopyWith<$Res> {
+  factory $SignOutErrorCopyWith(
+          SignOutError value, $Res Function(SignOutError) then) =
+      _$SignOutErrorCopyWithImpl<$Res>;
+  $Res call({StateError error});
+}
+
+/// @nodoc
+class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOutErrorCopyWith<$Res> {
+  _$SignOutErrorCopyWithImpl(
+      SignOutError _value, $Res Function(SignOutError) _then)
+      : super(_value, (v) => _then(v as SignOutError));
+
+  @override
+  SignOutError get _value => super._value as SignOutError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(SignOutError(
+      error == freezed ? _value.error : error as StateError,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$SignOutError implements SignOutError {
+  const _$SignOutError(this.error) : assert(error != null);
+
+  @override
+  final StateError error;
+
+  @override
+  String toString() {
+    return 'SignOut.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SignOutError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $SignOutErrorCopyWith<SignOutError> get copyWith =>
+      _$SignOutErrorCopyWithImpl<SignOutError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(StateError error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(StateError error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutError implements SignOut, ErrorAction {
+  const factory SignOutError(StateError error) = _$SignOutError;
+
+  StateError get error;
+  $SignOutErrorCopyWith<SignOutError> get copyWith;
+}
+
+/// @nodoc
 class _$SignUpTearOff {
   const _$SignUpTearOff();
 
@@ -1497,22 +1880,24 @@ abstract class SignUpError implements SignUp, ErrorAction {
 }
 
 /// @nodoc
-class _$SignOutTearOff {
-  const _$SignOutTearOff();
+class _$SynchronizeCartTearOff {
+  const _$SynchronizeCartTearOff();
 
 // ignore: unused_element
-  SignOut$ call() {
-    return const SignOut$();
+  SynchronizeCart$ call({@required void Function(AppAction) response}) {
+    return SynchronizeCart$(
+      response: response,
+    );
   }
 
 // ignore: unused_element
-  SignOutSuccessful successful() {
-    return const SignOutSuccessful();
+  SynchronizeCartSuccessful successful() {
+    return const SynchronizeCartSuccessful();
   }
 
 // ignore: unused_element
-  SignOutError error(StateError error) {
-    return SignOutError(
+  SynchronizeCartError error(Object error) {
+    return SynchronizeCartError(
       error,
     );
   }
@@ -1520,110 +1905,140 @@ class _$SignOutTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $SignOut = _$SignOutTearOff();
+const $SynchronizeCart = _$SynchronizeCartTearOff();
 
 /// @nodoc
-mixin _$SignOut {
+mixin _$SynchronizeCart {
   @optionalTypeArgs
   Result when<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     @required Result successful(),
-    @required Result error(StateError error),
+    @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     Result successful(),
-    Result error(StateError error),
+    Result error(Object error),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    @required Result successful(SynchronizeCartSuccessful value),
+    @required Result error(SynchronizeCartError value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    Result successful(SynchronizeCartSuccessful value),
+    Result error(SynchronizeCartError value),
     @required Result orElse(),
   });
 }
 
 /// @nodoc
-abstract class $SignOutCopyWith<$Res> {
-  factory $SignOutCopyWith(SignOut value, $Res Function(SignOut) then) =
-      _$SignOutCopyWithImpl<$Res>;
+abstract class $SynchronizeCartCopyWith<$Res> {
+  factory $SynchronizeCartCopyWith(
+          SynchronizeCart value, $Res Function(SynchronizeCart) then) =
+      _$SynchronizeCartCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignOutCopyWithImpl<$Res> implements $SignOutCopyWith<$Res> {
-  _$SignOutCopyWithImpl(this._value, this._then);
+class _$SynchronizeCartCopyWithImpl<$Res>
+    implements $SynchronizeCartCopyWith<$Res> {
+  _$SynchronizeCartCopyWithImpl(this._value, this._then);
 
-  final SignOut _value;
+  final SynchronizeCart _value;
   // ignore: unused_field
-  final $Res Function(SignOut) _then;
+  final $Res Function(SynchronizeCart) _then;
 }
 
 /// @nodoc
-abstract class $SignOut$CopyWith<$Res> {
-  factory $SignOut$CopyWith(SignOut$ value, $Res Function(SignOut$) then) =
-      _$SignOut$CopyWithImpl<$Res>;
+abstract class $SynchronizeCart$CopyWith<$Res> {
+  factory $SynchronizeCart$CopyWith(
+          SynchronizeCart$ value, $Res Function(SynchronizeCart$) then) =
+      _$SynchronizeCart$CopyWithImpl<$Res>;
+  $Res call({void Function(AppAction) response});
 }
 
 /// @nodoc
-class _$SignOut$CopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
-    implements $SignOut$CopyWith<$Res> {
-  _$SignOut$CopyWithImpl(SignOut$ _value, $Res Function(SignOut$) _then)
-      : super(_value, (v) => _then(v as SignOut$));
+class _$SynchronizeCart$CopyWithImpl<$Res>
+    extends _$SynchronizeCartCopyWithImpl<$Res>
+    implements $SynchronizeCart$CopyWith<$Res> {
+  _$SynchronizeCart$CopyWithImpl(
+      SynchronizeCart$ _value, $Res Function(SynchronizeCart$) _then)
+      : super(_value, (v) => _then(v as SynchronizeCart$));
 
   @override
-  SignOut$ get _value => super._value as SignOut$;
+  SynchronizeCart$ get _value => super._value as SynchronizeCart$;
+
+  @override
+  $Res call({
+    Object response = freezed,
+  }) {
+    return _then(SynchronizeCart$(
+      response: response == freezed
+          ? _value.response
+          : response as void Function(AppAction),
+    ));
+  }
 }
 
 /// @nodoc
-class _$SignOut$ implements SignOut$ {
-  const _$SignOut$();
+class _$SynchronizeCart$ implements SynchronizeCart$ {
+  const _$SynchronizeCart$({@required this.response})
+      : assert(response != null);
+
+  @override
+  final void Function(AppAction) response;
 
   @override
   String toString() {
-    return 'SignOut()';
+    return 'SynchronizeCart(response: $response)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignOut$);
+    return identical(this, other) ||
+        (other is SynchronizeCart$ &&
+            (identical(other.response, response) ||
+                const DeepCollectionEquality()
+                    .equals(other.response, response)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
+
+  @override
+  $SynchronizeCart$CopyWith<SynchronizeCart$> get copyWith =>
+      _$SynchronizeCart$CopyWithImpl<SynchronizeCart$>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     @required Result successful(),
-    @required Result error(StateError error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
     assert(error != null);
-    return $default();
+    return $default(response);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     Result successful(),
-    Result error(StateError error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if ($default != null) {
-      return $default();
+      return $default(response);
     }
     return orElse();
   }
@@ -1631,9 +2046,9 @@ class _$SignOut$ implements SignOut$ {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    @required Result successful(SynchronizeCartSuccessful value),
+    @required Result error(SynchronizeCartError value),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1644,9 +2059,9 @@ class _$SignOut$ implements SignOut$ {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    Result successful(SynchronizeCartSuccessful value),
+    Result error(SynchronizeCartError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1657,40 +2072,46 @@ class _$SignOut$ implements SignOut$ {
   }
 }
 
-abstract class SignOut$ implements SignOut {
-  const factory SignOut$() = _$SignOut$;
+abstract class SynchronizeCart$ implements SynchronizeCart {
+  const factory SynchronizeCart$(
+      {@required void Function(AppAction) response}) = _$SynchronizeCart$;
+
+  void Function(AppAction) get response;
+  $SynchronizeCart$CopyWith<SynchronizeCart$> get copyWith;
 }
 
 /// @nodoc
-abstract class $SignOutSuccessfulCopyWith<$Res> {
-  factory $SignOutSuccessfulCopyWith(
-          SignOutSuccessful value, $Res Function(SignOutSuccessful) then) =
-      _$SignOutSuccessfulCopyWithImpl<$Res>;
+abstract class $SynchronizeCartSuccessfulCopyWith<$Res> {
+  factory $SynchronizeCartSuccessfulCopyWith(SynchronizeCartSuccessful value,
+          $Res Function(SynchronizeCartSuccessful) then) =
+      _$SynchronizeCartSuccessfulCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignOutSuccessfulCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
-    implements $SignOutSuccessfulCopyWith<$Res> {
-  _$SignOutSuccessfulCopyWithImpl(
-      SignOutSuccessful _value, $Res Function(SignOutSuccessful) _then)
-      : super(_value, (v) => _then(v as SignOutSuccessful));
+class _$SynchronizeCartSuccessfulCopyWithImpl<$Res>
+    extends _$SynchronizeCartCopyWithImpl<$Res>
+    implements $SynchronizeCartSuccessfulCopyWith<$Res> {
+  _$SynchronizeCartSuccessfulCopyWithImpl(SynchronizeCartSuccessful _value,
+      $Res Function(SynchronizeCartSuccessful) _then)
+      : super(_value, (v) => _then(v as SynchronizeCartSuccessful));
 
   @override
-  SignOutSuccessful get _value => super._value as SignOutSuccessful;
+  SynchronizeCartSuccessful get _value =>
+      super._value as SynchronizeCartSuccessful;
 }
 
 /// @nodoc
-class _$SignOutSuccessful implements SignOutSuccessful {
-  const _$SignOutSuccessful();
+class _$SynchronizeCartSuccessful implements SynchronizeCartSuccessful {
+  const _$SynchronizeCartSuccessful();
 
   @override
   String toString() {
-    return 'SignOut.successful()';
+    return 'SynchronizeCart.successful()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignOutSuccessful);
+    return identical(this, other) || (other is SynchronizeCartSuccessful);
   }
 
   @override
@@ -1699,9 +2120,9 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     @required Result successful(),
-    @required Result error(StateError error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1712,9 +2133,9 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     Result successful(),
-    Result error(StateError error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1727,9 +2148,9 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    @required Result successful(SynchronizeCartSuccessful value),
+    @required Result error(SynchronizeCartError value),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1740,9 +2161,9 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    Result successful(SynchronizeCartSuccessful value),
+    Result error(SynchronizeCartError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1753,34 +2174,35 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   }
 }
 
-abstract class SignOutSuccessful implements SignOut {
-  const factory SignOutSuccessful() = _$SignOutSuccessful;
+abstract class SynchronizeCartSuccessful implements SynchronizeCart {
+  const factory SynchronizeCartSuccessful() = _$SynchronizeCartSuccessful;
 }
 
 /// @nodoc
-abstract class $SignOutErrorCopyWith<$Res> {
-  factory $SignOutErrorCopyWith(
-          SignOutError value, $Res Function(SignOutError) then) =
-      _$SignOutErrorCopyWithImpl<$Res>;
-  $Res call({StateError error});
+abstract class $SynchronizeCartErrorCopyWith<$Res> {
+  factory $SynchronizeCartErrorCopyWith(SynchronizeCartError value,
+          $Res Function(SynchronizeCartError) then) =
+      _$SynchronizeCartErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
 }
 
 /// @nodoc
-class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
-    implements $SignOutErrorCopyWith<$Res> {
-  _$SignOutErrorCopyWithImpl(
-      SignOutError _value, $Res Function(SignOutError) _then)
-      : super(_value, (v) => _then(v as SignOutError));
+class _$SynchronizeCartErrorCopyWithImpl<$Res>
+    extends _$SynchronizeCartCopyWithImpl<$Res>
+    implements $SynchronizeCartErrorCopyWith<$Res> {
+  _$SynchronizeCartErrorCopyWithImpl(
+      SynchronizeCartError _value, $Res Function(SynchronizeCartError) _then)
+      : super(_value, (v) => _then(v as SynchronizeCartError));
 
   @override
-  SignOutError get _value => super._value as SignOutError;
+  SynchronizeCartError get _value => super._value as SynchronizeCartError;
 
   @override
   $Res call({
     Object error = freezed,
   }) {
-    return _then(SignOutError(
-      error == freezed ? _value.error : error as StateError,
+    return _then(SynchronizeCartError(
+      error == freezed ? _value.error : error,
     ));
   }
 }
@@ -1788,21 +2210,21 @@ class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
 @Implements(ErrorAction)
 
 /// @nodoc
-class _$SignOutError implements SignOutError {
-  const _$SignOutError(this.error) : assert(error != null);
+class _$SynchronizeCartError implements SynchronizeCartError {
+  const _$SynchronizeCartError(this.error) : assert(error != null);
 
   @override
-  final StateError error;
+  final Object error;
 
   @override
   String toString() {
-    return 'SignOut.error(error: $error)';
+    return 'SynchronizeCart.error(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SignOutError &&
+        (other is SynchronizeCartError &&
             (identical(other.error, error) ||
                 const DeepCollectionEquality().equals(other.error, error)));
   }
@@ -1812,15 +2234,16 @@ class _$SignOutError implements SignOutError {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
   @override
-  $SignOutErrorCopyWith<SignOutError> get copyWith =>
-      _$SignOutErrorCopyWithImpl<SignOutError>(this, _$identity);
+  $SynchronizeCartErrorCopyWith<SynchronizeCartError> get copyWith =>
+      _$SynchronizeCartErrorCopyWithImpl<SynchronizeCartError>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     @required Result successful(),
-    @required Result error(StateError error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1831,9 +2254,9 @@ class _$SignOutError implements SignOutError {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
-    Result $default(), {
+    Result $default(void Function(AppAction) response), {
     Result successful(),
-    Result error(StateError error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1846,9 +2269,9 @@ class _$SignOutError implements SignOutError {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    @required Result successful(SynchronizeCartSuccessful value),
+    @required Result error(SynchronizeCartError value),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1859,9 +2282,9 @@ class _$SignOutError implements SignOutError {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
+    Result $default(SynchronizeCart$ value), {
+    Result successful(SynchronizeCartSuccessful value),
+    Result error(SynchronizeCartError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1872,9 +2295,196 @@ class _$SignOutError implements SignOutError {
   }
 }
 
-abstract class SignOutError implements SignOut, ErrorAction {
-  const factory SignOutError(StateError error) = _$SignOutError;
+abstract class SynchronizeCartError implements SynchronizeCart, ErrorAction {
+  const factory SynchronizeCartError(Object error) = _$SynchronizeCartError;
 
-  StateError get error;
-  $SignOutErrorCopyWith<SignOutError> get copyWith;
+  Object get error;
+  $SynchronizeCartErrorCopyWith<SynchronizeCartError> get copyWith;
+}
+
+/// @nodoc
+class _$UpdateCartTearOff {
+  const _$UpdateCartTearOff();
+
+// ignore: unused_element
+  UpdateCart$ call(
+      {String addProduct,
+      String removeProduct,
+      String clearProduct,
+      bool clearCart}) {
+    return UpdateCart$(
+      addProduct: addProduct,
+      removeProduct: removeProduct,
+      clearProduct: clearProduct,
+      clearCart: clearCart,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateCart = _$UpdateCartTearOff();
+
+/// @nodoc
+mixin _$UpdateCart {
+  String get addProduct;
+  String get removeProduct;
+  String get clearProduct;
+  bool get clearCart;
+
+  $UpdateCartCopyWith<UpdateCart> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateCartCopyWith<$Res> {
+  factory $UpdateCartCopyWith(
+          UpdateCart value, $Res Function(UpdateCart) then) =
+      _$UpdateCartCopyWithImpl<$Res>;
+  $Res call(
+      {String addProduct,
+      String removeProduct,
+      String clearProduct,
+      bool clearCart});
+}
+
+/// @nodoc
+class _$UpdateCartCopyWithImpl<$Res> implements $UpdateCartCopyWith<$Res> {
+  _$UpdateCartCopyWithImpl(this._value, this._then);
+
+  final UpdateCart _value;
+  // ignore: unused_field
+  final $Res Function(UpdateCart) _then;
+
+  @override
+  $Res call({
+    Object addProduct = freezed,
+    Object removeProduct = freezed,
+    Object clearProduct = freezed,
+    Object clearCart = freezed,
+  }) {
+    return _then(_value.copyWith(
+      addProduct:
+          addProduct == freezed ? _value.addProduct : addProduct as String,
+      removeProduct: removeProduct == freezed
+          ? _value.removeProduct
+          : removeProduct as String,
+      clearProduct: clearProduct == freezed
+          ? _value.clearProduct
+          : clearProduct as String,
+      clearCart: clearCart == freezed ? _value.clearCart : clearCart as bool,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $UpdateCart$CopyWith<$Res> implements $UpdateCartCopyWith<$Res> {
+  factory $UpdateCart$CopyWith(
+          UpdateCart$ value, $Res Function(UpdateCart$) then) =
+      _$UpdateCart$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String addProduct,
+      String removeProduct,
+      String clearProduct,
+      bool clearCart});
+}
+
+/// @nodoc
+class _$UpdateCart$CopyWithImpl<$Res> extends _$UpdateCartCopyWithImpl<$Res>
+    implements $UpdateCart$CopyWith<$Res> {
+  _$UpdateCart$CopyWithImpl(
+      UpdateCart$ _value, $Res Function(UpdateCart$) _then)
+      : super(_value, (v) => _then(v as UpdateCart$));
+
+  @override
+  UpdateCart$ get _value => super._value as UpdateCart$;
+
+  @override
+  $Res call({
+    Object addProduct = freezed,
+    Object removeProduct = freezed,
+    Object clearProduct = freezed,
+    Object clearCart = freezed,
+  }) {
+    return _then(UpdateCart$(
+      addProduct:
+          addProduct == freezed ? _value.addProduct : addProduct as String,
+      removeProduct: removeProduct == freezed
+          ? _value.removeProduct
+          : removeProduct as String,
+      clearProduct: clearProduct == freezed
+          ? _value.clearProduct
+          : clearProduct as String,
+      clearCart: clearCart == freezed ? _value.clearCart : clearCart as bool,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateCart$ implements UpdateCart$ {
+  const _$UpdateCart$(
+      {this.addProduct, this.removeProduct, this.clearProduct, this.clearCart});
+
+  @override
+  final String addProduct;
+  @override
+  final String removeProduct;
+  @override
+  final String clearProduct;
+  @override
+  final bool clearCart;
+
+  @override
+  String toString() {
+    return 'UpdateCart(addProduct: $addProduct, removeProduct: $removeProduct, clearProduct: $clearProduct, clearCart: $clearCart)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateCart$ &&
+            (identical(other.addProduct, addProduct) ||
+                const DeepCollectionEquality()
+                    .equals(other.addProduct, addProduct)) &&
+            (identical(other.removeProduct, removeProduct) ||
+                const DeepCollectionEquality()
+                    .equals(other.removeProduct, removeProduct)) &&
+            (identical(other.clearProduct, clearProduct) ||
+                const DeepCollectionEquality()
+                    .equals(other.clearProduct, clearProduct)) &&
+            (identical(other.clearCart, clearCart) ||
+                const DeepCollectionEquality()
+                    .equals(other.clearCart, clearCart)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(addProduct) ^
+      const DeepCollectionEquality().hash(removeProduct) ^
+      const DeepCollectionEquality().hash(clearProduct) ^
+      const DeepCollectionEquality().hash(clearCart);
+
+  @override
+  $UpdateCart$CopyWith<UpdateCart$> get copyWith =>
+      _$UpdateCart$CopyWithImpl<UpdateCart$>(this, _$identity);
+}
+
+abstract class UpdateCart$ implements UpdateCart {
+  const factory UpdateCart$(
+      {String addProduct,
+      String removeProduct,
+      String clearProduct,
+      bool clearCart}) = _$UpdateCart$;
+
+  @override
+  String get addProduct;
+  @override
+  String get removeProduct;
+  @override
+  String get clearProduct;
+  @override
+  bool get clearCart;
+  @override
+  $UpdateCart$CopyWith<UpdateCart$> get copyWith;
 }

@@ -20,6 +20,7 @@ class AuthEpics {
       TypedEpic<AppState, SignUp$>(_signUp),
       TypedEpic<AppState, ResetPassword$>(_resetPassword),
       TypedEpic<AppState, SignOut$>(_signOut),
+      TypedEpic<AppState, SynchronizeCart$>(_updateCart),
     ]);
   }
 
@@ -56,5 +57,14 @@ class AuthEpics {
         .asyncMap((SignOut$ action) => _auth.signOut())
         .map((_) => const SignOut.successful())
         .onErrorReturnWith((dynamic error) => SignOut.error(error)));
+  }
+
+  Stream<AppAction> _updateCart(Stream<SynchronizeCart$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SynchronizeCart$ action) => Stream<SynchronizeCart$>.value(action)
+            .asyncMap((_) => _auth.updateCart(store.state.auth.user.uid, store.state.auth.user.cart))
+            .map((_) => const SynchronizeCart.successful())
+            .onErrorReturnWith((dynamic error) => SynchronizeCart.error(error))
+            .doOnData(action.response));
   }
 }

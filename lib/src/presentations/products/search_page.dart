@@ -16,6 +16,7 @@ class SearchPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.blue),
         title: TextField(
           autofocus: true,
           decoration: const InputDecoration(

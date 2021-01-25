@@ -8,3 +8,4 @@ abstract class UpdateRegistrationInfo with _$UpdateRegistrationInfo implements A
     String displayedName,
   }) = UpdateRegistrationInfo$;
 }
+
