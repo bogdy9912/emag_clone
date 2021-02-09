@@ -52,7 +52,7 @@ eMag app clone
 * [ ] add payment method (25')
 
 ## Favorites (30')
-* [ ] show list of favored products (15')
+* [x] show list of favored products (15')
 * [ ] buy again (15')
 
 ## Profile (90')
