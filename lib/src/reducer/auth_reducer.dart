@@ -41,15 +41,15 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
 
   return state.rebuild((AuthStateBuilder b) {
     if (action.addProduct != null) {
-      final int index = cartState.items.indexWhere((CartItem item) => item.productId == action.addProduct);
+      final int index = cartState.items.indexWhere((CartItem item) => item.productId == action.addProduct.id);
 
       if (index == -1) {
-        b.user.cart.items.add(CartItem(productId: action.addProduct, quantity: 1));
+        b.user.cart.items.add(CartItem(productId: action.addProduct.id, quantity: 1, price: action.addProduct.price));
       } else {
         b.user.cart.items[index] = b.user.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity + 1);
       }
     } else if (action.removeProduct != null) {
-      final int index = cartState.items.indexWhere((CartItem item) => item.productId == action.addProduct);
+      final int index = cartState.items.indexWhere((CartItem item) => item.productId == action.addProduct.id);
       if (index == -1) {
         // eroare
         // ar trb sa fac si pt cazul in care ajunge quantity la 0? si sa fac clear la product? sau fac din UI sa fie minim 1bucs
@@ -57,7 +57,7 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
         b.user.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity - 1);
       }
     } else if (action.clearProduct != null) {
-      b.user.cart.items.removeWhere((CartItem item) => item.productId == action.addProduct);
+      b.user.cart.items.removeWhere((CartItem item) => item.productId == action.addProduct.id);
     } else {
       b.user.cart = Cart().toBuilder();
     }

@@ -43,7 +43,7 @@ eMag app clone
 ## Shopping cart (65')
 * [x] show all products (15')
 * [ ] add voucher (15')
-* [ ] show total amount (10')
+* [x] show total amount (10')
 * [ ] redirect to **Search + Categories** if cart is empty (10')
 * [ ] buy again (15')
 
@@ -61,6 +61,6 @@ eMag app clone
 * [ ] edit profile (15')
 * [ ] choose what notifications to receive
 * [ ] notifications (35')
-        * [ ] a favorite product is on sale
+    * [ ] a favorite product is on sale
     * [ ] someone commented on your review
     * [ ] someone liked your review

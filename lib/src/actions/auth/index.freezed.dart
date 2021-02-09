@@ -2308,15 +2308,11 @@ class _$UpdateCartTearOff {
 
 // ignore: unused_element
   UpdateCart$ call(
-      {String addProduct,
-      String removeProduct,
-      String clearProduct,
-      bool clearCart}) {
+      {Product addProduct, Product removeProduct, Product clearProduct}) {
     return UpdateCart$(
       addProduct: addProduct,
       removeProduct: removeProduct,
       clearProduct: clearProduct,
-      clearCart: clearCart,
     );
   }
 }
@@ -2327,10 +2323,9 @@ const $UpdateCart = _$UpdateCartTearOff();
 
 /// @nodoc
 mixin _$UpdateCart {
-  String get addProduct;
-  String get removeProduct;
-  String get clearProduct;
-  bool get clearCart;
+  Product get addProduct;
+  Product get removeProduct;
+  Product get clearProduct;
 
   $UpdateCartCopyWith<UpdateCart> get copyWith;
 }
@@ -2340,11 +2335,7 @@ abstract class $UpdateCartCopyWith<$Res> {
   factory $UpdateCartCopyWith(
           UpdateCart value, $Res Function(UpdateCart) then) =
       _$UpdateCartCopyWithImpl<$Res>;
-  $Res call(
-      {String addProduct,
-      String removeProduct,
-      String clearProduct,
-      bool clearCart});
+  $Res call({Product addProduct, Product removeProduct, Product clearProduct});
 }
 
 /// @nodoc
@@ -2360,18 +2351,16 @@ class _$UpdateCartCopyWithImpl<$Res> implements $UpdateCartCopyWith<$Res> {
     Object addProduct = freezed,
     Object removeProduct = freezed,
     Object clearProduct = freezed,
-    Object clearCart = freezed,
   }) {
     return _then(_value.copyWith(
       addProduct:
-          addProduct == freezed ? _value.addProduct : addProduct as String,
+          addProduct == freezed ? _value.addProduct : addProduct as Product,
       removeProduct: removeProduct == freezed
           ? _value.removeProduct
-          : removeProduct as String,
+          : removeProduct as Product,
       clearProduct: clearProduct == freezed
           ? _value.clearProduct
-          : clearProduct as String,
-      clearCart: clearCart == freezed ? _value.clearCart : clearCart as bool,
+          : clearProduct as Product,
     ));
   }
 }
@@ -2382,11 +2371,7 @@ abstract class $UpdateCart$CopyWith<$Res> implements $UpdateCartCopyWith<$Res> {
           UpdateCart$ value, $Res Function(UpdateCart$) then) =
       _$UpdateCart$CopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String addProduct,
-      String removeProduct,
-      String clearProduct,
-      bool clearCart});
+  $Res call({Product addProduct, Product removeProduct, Product clearProduct});
 }
 
 /// @nodoc
@@ -2404,39 +2389,34 @@ class _$UpdateCart$CopyWithImpl<$Res> extends _$UpdateCartCopyWithImpl<$Res>
     Object addProduct = freezed,
     Object removeProduct = freezed,
     Object clearProduct = freezed,
-    Object clearCart = freezed,
   }) {
     return _then(UpdateCart$(
       addProduct:
-          addProduct == freezed ? _value.addProduct : addProduct as String,
+          addProduct == freezed ? _value.addProduct : addProduct as Product,
       removeProduct: removeProduct == freezed
           ? _value.removeProduct
-          : removeProduct as String,
+          : removeProduct as Product,
       clearProduct: clearProduct == freezed
           ? _value.clearProduct
-          : clearProduct as String,
-      clearCart: clearCart == freezed ? _value.clearCart : clearCart as bool,
+          : clearProduct as Product,
     ));
   }
 }
 
 /// @nodoc
 class _$UpdateCart$ implements UpdateCart$ {
-  const _$UpdateCart$(
-      {this.addProduct, this.removeProduct, this.clearProduct, this.clearCart});
+  const _$UpdateCart$({this.addProduct, this.removeProduct, this.clearProduct});
 
   @override
-  final String addProduct;
+  final Product addProduct;
   @override
-  final String removeProduct;
+  final Product removeProduct;
   @override
-  final String clearProduct;
-  @override
-  final bool clearCart;
+  final Product clearProduct;
 
   @override
   String toString() {
-    return 'UpdateCart(addProduct: $addProduct, removeProduct: $removeProduct, clearProduct: $clearProduct, clearCart: $clearCart)';
+    return 'UpdateCart(addProduct: $addProduct, removeProduct: $removeProduct, clearProduct: $clearProduct)';
   }
 
   @override
@@ -2451,10 +2431,7 @@ class _$UpdateCart$ implements UpdateCart$ {
                     .equals(other.removeProduct, removeProduct)) &&
             (identical(other.clearProduct, clearProduct) ||
                 const DeepCollectionEquality()
-                    .equals(other.clearProduct, clearProduct)) &&
-            (identical(other.clearCart, clearCart) ||
-                const DeepCollectionEquality()
-                    .equals(other.clearCart, clearCart)));
+                    .equals(other.clearProduct, clearProduct)));
   }
 
   @override
@@ -2462,8 +2439,7 @@ class _$UpdateCart$ implements UpdateCart$ {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(addProduct) ^
       const DeepCollectionEquality().hash(removeProduct) ^
-      const DeepCollectionEquality().hash(clearProduct) ^
-      const DeepCollectionEquality().hash(clearCart);
+      const DeepCollectionEquality().hash(clearProduct);
 
   @override
   $UpdateCart$CopyWith<UpdateCart$> get copyWith =>
@@ -2472,19 +2448,16 @@ class _$UpdateCart$ implements UpdateCart$ {
 
 abstract class UpdateCart$ implements UpdateCart {
   const factory UpdateCart$(
-      {String addProduct,
-      String removeProduct,
-      String clearProduct,
-      bool clearCart}) = _$UpdateCart$;
+      {Product addProduct,
+      Product removeProduct,
+      Product clearProduct}) = _$UpdateCart$;
 
   @override
-  String get addProduct;
+  Product get addProduct;
   @override
-  String get removeProduct;
+  Product get removeProduct;
   @override
-  String get clearProduct;
-  @override
-  bool get clearCart;
+  Product get clearProduct;
   @override
   $UpdateCart$CopyWith<UpdateCart$> get copyWith;
 }

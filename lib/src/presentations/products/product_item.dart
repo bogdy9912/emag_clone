@@ -139,7 +139,7 @@ class ProductItem extends StatelessWidget {
                               icon: const Icon(Icons.add_shopping_cart),
                               color: Colors.white,
                               onPressed: () {
-                                StoreProvider.of<AppState>(context).dispatch(UpdateCart(addProduct: product.id));
+                                StoreProvider.of<AppState>(context).dispatch(UpdateCart(addProduct: product));
                                 StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
                               },
                             ),

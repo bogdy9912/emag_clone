@@ -15,15 +15,72 @@ class CartPage extends StatelessWidget {
         title: const Text('Your cart'),
       ),
       body: ProductsContainer(
-        builder:(BuildContext context, List<Product> products) => CartContainer(
-          builder: (BuildContext context, Cart cart) => ListView.builder(
-            itemCount: cart.items.length,
-            itemBuilder: (BuildContext context, int index) {
-              final String productId =cart.items[index].productId;
-              final Product product = products.where((Product element) => element.id == productId).first;
-              return CartItemWidget(product: product, quantity: cart.items[index].quantity,);
-            },
-          ),
+        builder: (BuildContext context, List<Product> products) => CartContainer(
+          builder: (BuildContext context, Cart cart) {
+            return Column(
+              children: <Widget>[
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cart.items.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final String productId = cart.items[index].productId;
+                      final Product product = products.where((Product element) => element.id == productId).first;
+                      return CartItemWidget(product: product, quantity: cart.items[index].quantity);
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      const Text(
+                        'Total comanda: ',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Text(
+                        '${cart.totalAmount.toStringAsFixed(2)} lei',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8,
+                  ),
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: Colors.blue,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    child: Container(
+                      width: double.infinity,
+                      child: const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: Text(
+                            'Checkout',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );

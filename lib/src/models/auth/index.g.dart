@@ -203,6 +203,9 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
       'quantity',
       serializers.serialize(object.quantity,
           specifiedType: const FullType(int)),
+      'price',
+      serializers.serialize(object.price,
+          specifiedType: const FullType(double)),
     ];
 
     return result;
@@ -226,6 +229,10 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
         case 'quantity':
           result.quantity = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
+          break;
+        case 'price':
+          result.price = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double;
           break;
       }
     }
@@ -552,6 +559,7 @@ class _$Cart extends Cart {
   @override
   final String voucher;
   int __totalProducts;
+  double __totalAmount;
 
   factory _$Cart([void Function(CartBuilder) updates]) =>
       (new CartBuilder()..update(updates)).build();
@@ -564,6 +572,9 @@ class _$Cart extends Cart {
 
   @override
   int get totalProducts => __totalProducts ??= super.totalProducts;
+
+  @override
+  double get totalAmount => __totalAmount ??= super.totalAmount;
 
   @override
   Cart rebuild(void Function(CartBuilder) updates) =>
@@ -654,16 +665,21 @@ class _$CartItem extends CartItem {
   final String productId;
   @override
   final int quantity;
+  @override
+  final double price;
 
   factory _$CartItem([void Function(CartItemBuilder) updates]) =>
       (new CartItemBuilder()..update(updates)).build();
 
-  _$CartItem._({this.productId, this.quantity}) : super._() {
+  _$CartItem._({this.productId, this.quantity, this.price}) : super._() {
     if (productId == null) {
       throw new BuiltValueNullFieldError('CartItem', 'productId');
     }
     if (quantity == null) {
       throw new BuiltValueNullFieldError('CartItem', 'quantity');
+    }
+    if (price == null) {
+      throw new BuiltValueNullFieldError('CartItem', 'price');
     }
   }
 
@@ -679,19 +695,22 @@ class _$CartItem extends CartItem {
     if (identical(other, this)) return true;
     return other is CartItem &&
         productId == other.productId &&
-        quantity == other.quantity;
+        quantity == other.quantity &&
+        price == other.price;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, productId.hashCode), quantity.hashCode));
+    return $jf($jc(
+        $jc($jc(0, productId.hashCode), quantity.hashCode), price.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CartItem')
           ..add('productId', productId)
-          ..add('quantity', quantity))
+          ..add('quantity', quantity)
+          ..add('price', price))
         .toString();
   }
 }
@@ -707,12 +726,17 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
   int get quantity => _$this._quantity;
   set quantity(int quantity) => _$this._quantity = quantity;
 
+  double _price;
+  double get price => _$this._price;
+  set price(double price) => _$this._price = price;
+
   CartItemBuilder();
 
   CartItemBuilder get _$this {
     if (_$v != null) {
       _productId = _$v.productId;
       _quantity = _$v.quantity;
+      _price = _$v.price;
       _$v = null;
     }
     return this;
@@ -733,8 +757,9 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
 
   @override
   _$CartItem build() {
-    final _$result =
-        _$v ?? new _$CartItem._(productId: productId, quantity: quantity);
+    final _$result = _$v ??
+        new _$CartItem._(
+            productId: productId, quantity: quantity, price: price);
     replace(_$result);
     return _$result;
   }
