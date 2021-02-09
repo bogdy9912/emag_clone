@@ -65,8 +65,7 @@ class CartItemWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         Text('Quantity: $quantity'),
-
-                        Text('Price: ${quantity*product.price}'),
+                        Text('Price: ${(quantity * product.price).toStringAsFixed(2)}'),
                       ],
                     ),
                   ],

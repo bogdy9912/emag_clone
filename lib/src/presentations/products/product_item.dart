@@ -2,6 +2,7 @@ import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/actions/index.dart';
 import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
+import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -69,12 +70,17 @@ class ProductItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Container(
-                          width: 150,
-                          child: Text(
-                            product.title,
-                            maxLines: 3,
+                        InkWell(
+                          child: Container(
+                            width: 150,
+                            child: Text(
+                              product.title,
+                              maxLines: 3,
+                            ),
                           ),
+                          onTap: (){
+                            Navigator.pushNamed(context, AppRoutes.productPage, arguments: product);
+                          },
                         ),
                         const Icon(Icons.favorite),
                       ],
@@ -113,7 +119,7 @@ class ProductItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          '${product.price}',
+                          '${product.price.toStringAsFixed(2)}',
                           style: const TextStyle(
                             color: Colors.red,
                             fontSize: 20,

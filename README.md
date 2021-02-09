@@ -27,9 +27,9 @@ eMag app clone
 
 ## Product page (90')
 * [ ] share (10')
-* [ ] add products to cart (10')
+* [x] add products to cart (10')
 * [ ] add to favorites (10')
-* [ ] reviews (20')
+* [x] reviews (20')
 * [ ] review comments (20')
 * [ ] ask questions (20')
 
