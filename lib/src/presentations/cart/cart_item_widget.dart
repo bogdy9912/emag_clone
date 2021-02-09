@@ -1,4 +1,5 @@
 import 'package:emag_clone/src/models/products/index.dart';
+import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class CartItemWidget extends StatelessWidget {
@@ -31,14 +32,19 @@ class CartItemWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Container(
-                          width: 150,
-                          child: Text(
-                            product.title,
-                            maxLines: 3,
+                        InkWell(
+                          child: Container(
+                            width: 200,
+                            child: Text(
+                              product.title,
+                              maxLines: 3,
+                            ),
                           ),
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoutes.productPage, arguments: product);
+                          },
                         ),
-                        const Icon(Icons.favorite),
+
                       ],
                     ),
                     Row(
