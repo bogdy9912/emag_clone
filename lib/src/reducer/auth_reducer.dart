@@ -8,6 +8,7 @@ Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, UpdateRegistrationInfo$>(_updateRegistrationInfo),
   TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful),
   TypedReducer<AuthState, UpdateCart$>(_updateCart),
+  TypedReducer<AuthState, UpdateFavoriteProductsSuccessful>(_updateFavoriteProductsSuccessful),
 ]);
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
@@ -60,6 +61,20 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
       b.user.cart.items.removeWhere((CartItem item) => item.productId == action.addProduct.id);
     } else {
       b.user.cart = Cart().toBuilder();
+    }
+  });
+}
+
+AuthState _updateFavoriteProductsSuccessful(AuthState state, UpdateFavoriteProductsSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    if (action.add != null) {
+      if (!state.user.favorites.contains(action.add)) {
+        b.user.favorites.add(action.add);
+      }
+    } else {
+      if (state.user.favorites.contains(action.remove)) {
+        b.user.favorites.remove(action.remove);
+      }
     }
   });
 }

@@ -2879,3 +2879,481 @@ abstract class InitializeAppError implements InitializeApp, ErrorAction {
   Object get error;
   $InitializeAppErrorCopyWith<InitializeAppError> get copyWith;
 }
+
+/// @nodoc
+class _$UpdateFavoriteProductsTearOff {
+  const _$UpdateFavoriteProductsTearOff();
+
+// ignore: unused_element
+  UpdateFavoriteProducts$ call({String add, String remove}) {
+    return UpdateFavoriteProducts$(
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateFavoriteProductsSuccessful successful({String add, String remove}) {
+    return UpdateFavoriteProductsSuccessful(
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateFavoriteProductsError error(Object error) {
+    return UpdateFavoriteProductsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateFavoriteProducts = _$UpdateFavoriteProductsTearOff();
+
+/// @nodoc
+mixin _$UpdateFavoriteProducts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    @required Result successful(UpdateFavoriteProductsSuccessful value),
+    @required Result error(UpdateFavoriteProductsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    Result successful(UpdateFavoriteProductsSuccessful value),
+    Result error(UpdateFavoriteProductsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $UpdateFavoriteProductsCopyWith<$Res> {
+  factory $UpdateFavoriteProductsCopyWith(UpdateFavoriteProducts value,
+          $Res Function(UpdateFavoriteProducts) then) =
+      _$UpdateFavoriteProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateFavoriteProductsCopyWithImpl<$Res>
+    implements $UpdateFavoriteProductsCopyWith<$Res> {
+  _$UpdateFavoriteProductsCopyWithImpl(this._value, this._then);
+
+  final UpdateFavoriteProducts _value;
+  // ignore: unused_field
+  final $Res Function(UpdateFavoriteProducts) _then;
+}
+
+/// @nodoc
+abstract class $UpdateFavoriteProducts$CopyWith<$Res> {
+  factory $UpdateFavoriteProducts$CopyWith(UpdateFavoriteProducts$ value,
+          $Res Function(UpdateFavoriteProducts$) then) =
+      _$UpdateFavoriteProducts$CopyWithImpl<$Res>;
+  $Res call({String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateFavoriteProducts$CopyWithImpl<$Res>
+    extends _$UpdateFavoriteProductsCopyWithImpl<$Res>
+    implements $UpdateFavoriteProducts$CopyWith<$Res> {
+  _$UpdateFavoriteProducts$CopyWithImpl(UpdateFavoriteProducts$ _value,
+      $Res Function(UpdateFavoriteProducts$) _then)
+      : super(_value, (v) => _then(v as UpdateFavoriteProducts$));
+
+  @override
+  UpdateFavoriteProducts$ get _value => super._value as UpdateFavoriteProducts$;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateFavoriteProducts$(
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateFavoriteProducts$ implements UpdateFavoriteProducts$ {
+  const _$UpdateFavoriteProducts$({this.add, this.remove});
+
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateFavoriteProducts(add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateFavoriteProducts$ &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateFavoriteProducts$CopyWith<UpdateFavoriteProducts$> get copyWith =>
+      _$UpdateFavoriteProducts$CopyWithImpl<UpdateFavoriteProducts$>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    @required Result successful(UpdateFavoriteProductsSuccessful value),
+    @required Result error(UpdateFavoriteProductsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    Result successful(UpdateFavoriteProductsSuccessful value),
+    Result error(UpdateFavoriteProductsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateFavoriteProducts$ implements UpdateFavoriteProducts {
+  const factory UpdateFavoriteProducts$({String add, String remove}) =
+      _$UpdateFavoriteProducts$;
+
+  String get add;
+  String get remove;
+  $UpdateFavoriteProducts$CopyWith<UpdateFavoriteProducts$> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateFavoriteProductsSuccessfulCopyWith<$Res> {
+  factory $UpdateFavoriteProductsSuccessfulCopyWith(
+          UpdateFavoriteProductsSuccessful value,
+          $Res Function(UpdateFavoriteProductsSuccessful) then) =
+      _$UpdateFavoriteProductsSuccessfulCopyWithImpl<$Res>;
+  $Res call({String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateFavoriteProductsSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateFavoriteProductsCopyWithImpl<$Res>
+    implements $UpdateFavoriteProductsSuccessfulCopyWith<$Res> {
+  _$UpdateFavoriteProductsSuccessfulCopyWithImpl(
+      UpdateFavoriteProductsSuccessful _value,
+      $Res Function(UpdateFavoriteProductsSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateFavoriteProductsSuccessful));
+
+  @override
+  UpdateFavoriteProductsSuccessful get _value =>
+      super._value as UpdateFavoriteProductsSuccessful;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateFavoriteProductsSuccessful(
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateFavoriteProductsSuccessful
+    implements UpdateFavoriteProductsSuccessful {
+  const _$UpdateFavoriteProductsSuccessful({this.add, this.remove});
+
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateFavoriteProducts.successful(add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateFavoriteProductsSuccessful &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateFavoriteProductsSuccessfulCopyWith<UpdateFavoriteProductsSuccessful>
+      get copyWith => _$UpdateFavoriteProductsSuccessfulCopyWithImpl<
+          UpdateFavoriteProductsSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    @required Result successful(UpdateFavoriteProductsSuccessful value),
+    @required Result error(UpdateFavoriteProductsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    Result successful(UpdateFavoriteProductsSuccessful value),
+    Result error(UpdateFavoriteProductsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateFavoriteProductsSuccessful
+    implements UpdateFavoriteProducts {
+  const factory UpdateFavoriteProductsSuccessful({String add, String remove}) =
+      _$UpdateFavoriteProductsSuccessful;
+
+  String get add;
+  String get remove;
+  $UpdateFavoriteProductsSuccessfulCopyWith<UpdateFavoriteProductsSuccessful>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateFavoriteProductsErrorCopyWith<$Res> {
+  factory $UpdateFavoriteProductsErrorCopyWith(
+          UpdateFavoriteProductsError value,
+          $Res Function(UpdateFavoriteProductsError) then) =
+      _$UpdateFavoriteProductsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$UpdateFavoriteProductsErrorCopyWithImpl<$Res>
+    extends _$UpdateFavoriteProductsCopyWithImpl<$Res>
+    implements $UpdateFavoriteProductsErrorCopyWith<$Res> {
+  _$UpdateFavoriteProductsErrorCopyWithImpl(UpdateFavoriteProductsError _value,
+      $Res Function(UpdateFavoriteProductsError) _then)
+      : super(_value, (v) => _then(v as UpdateFavoriteProductsError));
+
+  @override
+  UpdateFavoriteProductsError get _value =>
+      super._value as UpdateFavoriteProductsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(UpdateFavoriteProductsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$UpdateFavoriteProductsError implements UpdateFavoriteProductsError {
+  const _$UpdateFavoriteProductsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'UpdateFavoriteProducts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateFavoriteProductsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $UpdateFavoriteProductsErrorCopyWith<UpdateFavoriteProductsError>
+      get copyWith => _$UpdateFavoriteProductsErrorCopyWithImpl<
+          UpdateFavoriteProductsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    @required Result successful(UpdateFavoriteProductsSuccessful value),
+    @required Result error(UpdateFavoriteProductsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFavoriteProducts$ value), {
+    Result successful(UpdateFavoriteProductsSuccessful value),
+    Result error(UpdateFavoriteProductsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateFavoriteProductsError
+    implements UpdateFavoriteProducts, ErrorAction {
+  const factory UpdateFavoriteProductsError(Object error) =
+      _$UpdateFavoriteProductsError;
+
+  Object get error;
+  $UpdateFavoriteProductsErrorCopyWith<UpdateFavoriteProductsError>
+      get copyWith;
+}

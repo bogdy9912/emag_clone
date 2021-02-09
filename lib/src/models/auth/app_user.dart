@@ -19,6 +19,8 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
   @nullable
   Cart get cart;
 
+  BuiltList<String> get favorites;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<AppUser> get serializer => _$appUserSerializer;

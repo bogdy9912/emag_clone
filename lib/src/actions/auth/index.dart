@@ -15,3 +15,4 @@ part 'sign_up.dart';
 part 'synchronize_cart.dart';
 part 'update_cart.dart';
 part 'initialize_app.dart';
+part 'update_favorite_products.dart';

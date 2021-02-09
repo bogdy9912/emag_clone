@@ -52,4 +52,17 @@ class AuthApi {
   Future<void> updateCart(String uid, Cart cart) async {
     await _firestore.doc('users/$uid').update(<String, dynamic>{'cart': cart.json});
   }
+
+  Future<void> updateFavoriteProducts(String uid, String add, String remove) async {
+    FieldValue value;
+
+    if (add != null) {
+      value = FieldValue.arrayUnion(<String>[add]);
+    } else {
+      value = FieldValue.arrayRemove(<String>[remove]);
+    }
+    if (value != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{'favorites': value});
+    }
+  }
 }

@@ -31,6 +31,10 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
       'displayedName',
       serializers.serialize(object.displayedName,
           specifiedType: const FullType(String)),
+      'favorites',
+      serializers.serialize(object.favorites,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
     ];
     if (object.photoUrl != null) {
       result
@@ -77,6 +81,12 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
         case 'cart':
           result.cart.replace(serializers.deserialize(value,
               specifiedType: const FullType(Cart)) as Cart);
+          break;
+        case 'favorites':
+          result.favorites.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<Object>);
           break;
       }
     }
@@ -315,12 +325,19 @@ class _$AppUser extends AppUser {
   final String photoUrl;
   @override
   final Cart cart;
+  @override
+  final BuiltList<String> favorites;
 
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
 
   _$AppUser._(
-      {this.uid, this.email, this.displayedName, this.photoUrl, this.cart})
+      {this.uid,
+      this.email,
+      this.displayedName,
+      this.photoUrl,
+      this.cart,
+      this.favorites})
       : super._() {
     if (uid == null) {
       throw new BuiltValueNullFieldError('AppUser', 'uid');
@@ -330,6 +347,9 @@ class _$AppUser extends AppUser {
     }
     if (displayedName == null) {
       throw new BuiltValueNullFieldError('AppUser', 'displayedName');
+    }
+    if (favorites == null) {
+      throw new BuiltValueNullFieldError('AppUser', 'favorites');
     }
   }
 
@@ -348,17 +368,20 @@ class _$AppUser extends AppUser {
         email == other.email &&
         displayedName == other.displayedName &&
         photoUrl == other.photoUrl &&
-        cart == other.cart;
+        cart == other.cart &&
+        favorites == other.favorites;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, uid.hashCode), email.hashCode),
-                displayedName.hashCode),
-            photoUrl.hashCode),
-        cart.hashCode));
+            $jc(
+                $jc($jc($jc(0, uid.hashCode), email.hashCode),
+                    displayedName.hashCode),
+                photoUrl.hashCode),
+            cart.hashCode),
+        favorites.hashCode));
   }
 
   @override
@@ -368,7 +391,8 @@ class _$AppUser extends AppUser {
           ..add('email', email)
           ..add('displayedName', displayedName)
           ..add('photoUrl', photoUrl)
-          ..add('cart', cart))
+          ..add('cart', cart)
+          ..add('favorites', favorites))
         .toString();
   }
 }
@@ -397,6 +421,11 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   CartBuilder get cart => _$this._cart ??= new CartBuilder();
   set cart(CartBuilder cart) => _$this._cart = cart;
 
+  ListBuilder<String> _favorites;
+  ListBuilder<String> get favorites =>
+      _$this._favorites ??= new ListBuilder<String>();
+  set favorites(ListBuilder<String> favorites) => _$this._favorites = favorites;
+
   AppUserBuilder();
 
   AppUserBuilder get _$this {
@@ -406,6 +435,7 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _displayedName = _$v.displayedName;
       _photoUrl = _$v.photoUrl;
       _cart = _$v.cart?.toBuilder();
+      _favorites = _$v.favorites?.toBuilder();
       _$v = null;
     }
     return this;
@@ -434,12 +464,15 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
               email: email,
               displayedName: displayedName,
               photoUrl: photoUrl,
-              cart: _cart?.build());
+              cart: _cart?.build(),
+              favorites: favorites.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'cart';
         _cart?.build();
+        _$failedField = 'favorites';
+        favorites.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppUser', _$failedField, e.toString());
