@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/data/auth_api.dart';
 import 'package:emag_clone/src/data/products_api.dart';
 import 'package:emag_clone/src/epics/app_epics.dart';
@@ -26,5 +27,5 @@ Future<Store<AppState>> init() async {
     middleware: <Middleware<AppState>>[
       EpicMiddleware<AppState>(epic.epics),
     ],
-  );
+  )..dispatch(const InitializeApp());
 }

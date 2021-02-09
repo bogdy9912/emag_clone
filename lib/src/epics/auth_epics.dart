@@ -16,6 +16,7 @@ class AuthEpics {
 
   Epic<AppState> get epics {
     return combineEpics(<Epic<AppState>>[
+      TypedEpic<AppState, InitializeApp$>(_initializeApp),
       TypedEpic<AppState, Login$>(_login),
       TypedEpic<AppState, SignUp$>(_signUp),
       TypedEpic<AppState, ResetPassword$>(_resetPassword),
@@ -66,5 +67,13 @@ class AuthEpics {
             .map((_) => const SynchronizeCart.successful())
             .onErrorReturnWith((dynamic error) => SynchronizeCart.error(error))
             .doOnData(action.response));
+  }
+
+  Stream<AppAction> _initializeApp(Stream<InitializeApp$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((InitializeApp$ action) => Stream<InitializeApp$>.value(action)
+            .asyncMap((_) => _auth.initializeApp())
+            .map((AppUser user) => InitializeApp.successful(user))
+            .onErrorReturnWith((dynamic error) => InitializeApp.error(error)));
   }
 }

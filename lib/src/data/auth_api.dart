@@ -13,6 +13,12 @@ class AuthApi {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
 
+  Future<AppUser> initializeApp() async {
+    final User user = _auth.currentUser;
+    final DocumentSnapshot result = await _firestore.doc('users/${user.uid}').get();
+    return AppUser.fromJson(result.data());
+  }
+
   Future<AppUser> login({@required String email, @required String password}) async {
     final UserCredential response = await _auth.signInWithEmailAndPassword(email: email, password: password);
     final User user = response.user;

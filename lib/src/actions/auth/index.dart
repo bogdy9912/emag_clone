@@ -7,17 +7,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
 part 'index.freezed.dart';
-
 part 'login.dart';
-
 part 'reset_password.dart';
-
 part 'set.dart';
-
 part 'sign_out.dart';
-
 part 'sign_up.dart';
-
 part 'synchronize_cart.dart';
-
 part 'update_cart.dart';
+part 'initialize_app.dart';
