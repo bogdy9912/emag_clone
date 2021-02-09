@@ -28,4 +28,5 @@ class ProductsApi {
 
     return searchResult;
   }
+  
 }
