@@ -65,4 +65,5 @@ class AuthApi {
       await _firestore.doc('users/$uid').update(<String, dynamic>{'favorites': value});
     }
   }
+
 }

@@ -1059,6 +1059,400 @@ abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
 }
 
 /// @nodoc
+class _$UpdateProfileInfoTearOff {
+  const _$UpdateProfileInfoTearOff();
+
+// ignore: unused_element
+  UpdateProfileInfo$ call() {
+    return const UpdateProfileInfo$();
+  }
+
+// ignore: unused_element
+  UpdateProfileInfoSuccessful successful() {
+    return const UpdateProfileInfoSuccessful();
+  }
+
+// ignore: unused_element
+  UpdateProfileInfoError error(Object error) {
+    return UpdateProfileInfoError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateProfileInfo = _$UpdateProfileInfoTearOff();
+
+/// @nodoc
+mixin _$UpdateProfileInfo {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfoCopyWith<$Res> {
+  factory $UpdateProfileInfoCopyWith(
+          UpdateProfileInfo value, $Res Function(UpdateProfileInfo) then) =
+      _$UpdateProfileInfoCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfoCopyWith<$Res> {
+  _$UpdateProfileInfoCopyWithImpl(this._value, this._then);
+
+  final UpdateProfileInfo _value;
+  // ignore: unused_field
+  final $Res Function(UpdateProfileInfo) _then;
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfo$CopyWith<$Res> {
+  factory $UpdateProfileInfo$CopyWith(
+          UpdateProfileInfo$ value, $Res Function(UpdateProfileInfo$) then) =
+      _$UpdateProfileInfo$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateProfileInfo$CopyWithImpl<$Res>
+    extends _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfo$CopyWith<$Res> {
+  _$UpdateProfileInfo$CopyWithImpl(
+      UpdateProfileInfo$ _value, $Res Function(UpdateProfileInfo$) _then)
+      : super(_value, (v) => _then(v as UpdateProfileInfo$));
+
+  @override
+  UpdateProfileInfo$ get _value => super._value as UpdateProfileInfo$;
+}
+
+/// @nodoc
+class _$UpdateProfileInfo$ implements UpdateProfileInfo$ {
+  const _$UpdateProfileInfo$();
+
+  @override
+  String toString() {
+    return 'UpdateProfileInfo()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UpdateProfileInfo$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileInfo$ implements UpdateProfileInfo {
+  const factory UpdateProfileInfo$() = _$UpdateProfileInfo$;
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfoSuccessfulCopyWith<$Res> {
+  factory $UpdateProfileInfoSuccessfulCopyWith(
+          UpdateProfileInfoSuccessful value,
+          $Res Function(UpdateProfileInfoSuccessful) then) =
+      _$UpdateProfileInfoSuccessfulCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateProfileInfoSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfoSuccessfulCopyWith<$Res> {
+  _$UpdateProfileInfoSuccessfulCopyWithImpl(UpdateProfileInfoSuccessful _value,
+      $Res Function(UpdateProfileInfoSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateProfileInfoSuccessful));
+
+  @override
+  UpdateProfileInfoSuccessful get _value =>
+      super._value as UpdateProfileInfoSuccessful;
+}
+
+/// @nodoc
+class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
+  const _$UpdateProfileInfoSuccessful();
+
+  @override
+  String toString() {
+    return 'UpdateProfileInfo.successful()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UpdateProfileInfoSuccessful);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileInfoSuccessful implements UpdateProfileInfo {
+  const factory UpdateProfileInfoSuccessful() = _$UpdateProfileInfoSuccessful;
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfoErrorCopyWith<$Res> {
+  factory $UpdateProfileInfoErrorCopyWith(UpdateProfileInfoError value,
+          $Res Function(UpdateProfileInfoError) then) =
+      _$UpdateProfileInfoErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$UpdateProfileInfoErrorCopyWithImpl<$Res>
+    extends _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfoErrorCopyWith<$Res> {
+  _$UpdateProfileInfoErrorCopyWithImpl(UpdateProfileInfoError _value,
+      $Res Function(UpdateProfileInfoError) _then)
+      : super(_value, (v) => _then(v as UpdateProfileInfoError));
+
+  @override
+  UpdateProfileInfoError get _value => super._value as UpdateProfileInfoError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(UpdateProfileInfoError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$UpdateProfileInfoError implements UpdateProfileInfoError {
+  const _$UpdateProfileInfoError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'UpdateProfileInfo.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateProfileInfoError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith =>
+      _$UpdateProfileInfoErrorCopyWithImpl<UpdateProfileInfoError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileInfoError
+    implements UpdateProfileInfo, ErrorAction {
+  const factory UpdateProfileInfoError(Object error) = _$UpdateProfileInfoError;
+
+  Object get error;
+  $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith;
+}
+
+/// @nodoc
 class _$SignOutTearOff {
   const _$SignOutTearOff();
 

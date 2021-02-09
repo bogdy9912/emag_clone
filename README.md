@@ -44,8 +44,6 @@ eMag app clone
 * [x] show all products (15')
 * [ ] add voucher (15')
 * [x] show total amount (10')
-* [ ] redirect to **Search + Categories** if cart is empty (10')
-* [ ] buy again (15')
 
 ## Checkout (45')
 * [ ] add address (20')
@@ -53,7 +51,6 @@ eMag app clone
 
 ## Favorites (30')
 * [x] show list of favored products (15')
-* [ ] buy again (15')
 
 ## Profile (90')
 * [ ] my orders (15')

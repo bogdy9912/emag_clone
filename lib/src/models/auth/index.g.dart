@@ -48,6 +48,12 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
         ..add(serializers.serialize(object.cart,
             specifiedType: const FullType(Cart)));
     }
+    if (object.telephone != null) {
+      result
+        ..add('telephone')
+        ..add(serializers.serialize(object.telephone,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -87,6 +93,10 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList<Object>);
+          break;
+        case 'telephone':
+          result.telephone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -327,6 +337,8 @@ class _$AppUser extends AppUser {
   final Cart cart;
   @override
   final BuiltList<String> favorites;
+  @override
+  final String telephone;
 
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
@@ -337,7 +349,8 @@ class _$AppUser extends AppUser {
       this.displayedName,
       this.photoUrl,
       this.cart,
-      this.favorites})
+      this.favorites,
+      this.telephone})
       : super._() {
     if (uid == null) {
       throw new BuiltValueNullFieldError('AppUser', 'uid');
@@ -369,7 +382,8 @@ class _$AppUser extends AppUser {
         displayedName == other.displayedName &&
         photoUrl == other.photoUrl &&
         cart == other.cart &&
-        favorites == other.favorites;
+        favorites == other.favorites &&
+        telephone == other.telephone;
   }
 
   @override
@@ -377,11 +391,13 @@ class _$AppUser extends AppUser {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, uid.hashCode), email.hashCode),
-                    displayedName.hashCode),
-                photoUrl.hashCode),
-            cart.hashCode),
-        favorites.hashCode));
+                $jc(
+                    $jc($jc($jc(0, uid.hashCode), email.hashCode),
+                        displayedName.hashCode),
+                    photoUrl.hashCode),
+                cart.hashCode),
+            favorites.hashCode),
+        telephone.hashCode));
   }
 
   @override
@@ -392,7 +408,8 @@ class _$AppUser extends AppUser {
           ..add('displayedName', displayedName)
           ..add('photoUrl', photoUrl)
           ..add('cart', cart)
-          ..add('favorites', favorites))
+          ..add('favorites', favorites)
+          ..add('telephone', telephone))
         .toString();
   }
 }
@@ -426,6 +443,10 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _$this._favorites ??= new ListBuilder<String>();
   set favorites(ListBuilder<String> favorites) => _$this._favorites = favorites;
 
+  String _telephone;
+  String get telephone => _$this._telephone;
+  set telephone(String telephone) => _$this._telephone = telephone;
+
   AppUserBuilder();
 
   AppUserBuilder get _$this {
@@ -436,6 +457,7 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _photoUrl = _$v.photoUrl;
       _cart = _$v.cart?.toBuilder();
       _favorites = _$v.favorites?.toBuilder();
+      _telephone = _$v.telephone;
       _$v = null;
     }
     return this;
@@ -465,7 +487,8 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
               displayedName: displayedName,
               photoUrl: photoUrl,
               cart: _cart?.build(),
-              favorites: favorites.build());
+              favorites: favorites.build(),
+              telephone: telephone);
     } catch (_) {
       String _$failedField;
       try {
