@@ -14,6 +14,8 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
   RegistrationInfo get info;
 
 
+  @nullable
+  bool get isLoading;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

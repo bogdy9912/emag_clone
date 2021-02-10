@@ -9,6 +9,8 @@ Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful),
   TypedReducer<AuthState, UpdateCart$>(_updateCart),
   TypedReducer<AuthState, UpdateFavoriteProductsSuccessful>(_updateFavoriteProductsSuccessful),
+  TypedReducer<AuthState, UpdateProfileInfo>(_updateProfileInfo),
+  TypedReducer<AuthState, UpdateProfileInfoSuccessful>(_updateProfileInfoSuccessful),
 ]);
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
@@ -78,3 +80,17 @@ AuthState _updateFavoriteProductsSuccessful(AuthState state, UpdateFavoriteProdu
     }
   });
 }
+
+AuthState _updateProfileInfo(AuthState state, UpdateProfileInfo action) {
+  return state.rebuild((AuthStateBuilder b) => b.isLoading = true);
+}
+
+AuthState _updateProfileInfoSuccessful(AuthState state, UpdateProfileInfoSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    b
+      ..isLoading = false
+      ..user.telephone = action.telephone
+      ..user.displayedName = action.displayName;
+  });
+}
+

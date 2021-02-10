@@ -1,6 +1,10 @@
+import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
+import 'package:emag_clone/src/containers/store_container.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
+import 'package:emag_clone/src/models/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key key}) : super(key: key);
@@ -20,7 +24,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       builder: (BuildContext context, AppUser user) {
         _name.text = user.displayedName;
         _email.text = user.email;
-        _telephone.text = user.telephone??'';
+        _telephone.text = user.telephone ?? '';
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
@@ -38,36 +42,47 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     color: Colors.blue,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  StoreProvider.of<AppState>(context)
+                      .dispatch(UpdateProfileInfo(displayName: _name.text, telephone: _telephone.text));
+                },
               ),
             ],
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: <Widget>[
-                TextField(
-                  controller: _name,
-                  decoration: const InputDecoration(
-                    labelText: 'Name',
+          body: StoreContainer(
+            builder:(BuildContext context, AuthState appState) {
+              print(appState.isLoading);
+              if (appState.isLoading??false) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: _name,
+                    decoration: const InputDecoration(
+                      labelText: 'Name',
+                    ),
                   ),
-                ),
-                TextField(
-                  controller: _telephone,
-                  decoration: const InputDecoration(
-                    labelText: 'Telephone number',
+                  TextField(
+                    controller: _telephone,
+                    decoration: const InputDecoration(
+                      labelText: 'Telephone number',
+                    ),
                   ),
-                ),
-                TextField(
-                  enabled: false,
-                  controller: _email,
-                  style: const TextStyle(color: Colors.grey),
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
+                  TextField(
+                    enabled: false,
+                    controller: _email,
+                    style: const TextStyle(color: Colors.grey),
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+            );
+            },
           ),
         );
       },

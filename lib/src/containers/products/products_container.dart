@@ -1,8 +1,4 @@
-import 'package:emag_clone/src/models/index.dart';
-import 'package:emag_clone/src/models/products/index.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
+part of products_containers;
 
 class ProductsContainer extends StatelessWidget {
   const ProductsContainer({Key key, @required this.builder}) : super(key: key);

@@ -12,9 +12,9 @@ abstract class UpdateRegistrationInfo with _$UpdateRegistrationInfo implements A
 
 @freezed
 abstract class UpdateProfileInfo with _$UpdateProfileInfo implements AppAction {
-  const factory UpdateProfileInfo() = UpdateProfileInfo$;
+  const factory UpdateProfileInfo({String displayName, String telephone}) = UpdateProfileInfo$;
 
-  const factory UpdateProfileInfo.successful() = UpdateProfileInfoSuccessful;
+  const factory UpdateProfileInfo.successful({String displayName, String telephone}) = UpdateProfileInfoSuccessful;
 
   @Implements(ErrorAction)
   const factory UpdateProfileInfo.error(Object error) = UpdateProfileInfoError;

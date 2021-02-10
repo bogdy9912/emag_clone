@@ -125,6 +125,12 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
         ..add(serializers.serialize(object.user,
             specifiedType: const FullType(AppUser)));
     }
+    if (object.isLoading != null) {
+      result
+        ..add('isLoading')
+        ..add(serializers.serialize(object.isLoading,
+            specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -147,6 +153,10 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
           result.info.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RegistrationInfo))
               as RegistrationInfo);
+          break;
+        case 'isLoading':
+          result.isLoading = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
       }
     }
@@ -512,11 +522,13 @@ class _$AuthState extends AuthState {
   final AppUser user;
   @override
   final RegistrationInfo info;
+  @override
+  final bool isLoading;
 
   factory _$AuthState([void Function(AuthStateBuilder) updates]) =>
       (new AuthStateBuilder()..update(updates)).build();
 
-  _$AuthState._({this.user, this.info}) : super._() {
+  _$AuthState._({this.user, this.info, this.isLoading}) : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('AuthState', 'info');
     }
@@ -532,19 +544,24 @@ class _$AuthState extends AuthState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AuthState && user == other.user && info == other.info;
+    return other is AuthState &&
+        user == other.user &&
+        info == other.info &&
+        isLoading == other.isLoading;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, user.hashCode), info.hashCode));
+    return $jf(
+        $jc($jc($jc(0, user.hashCode), info.hashCode), isLoading.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AuthState')
           ..add('user', user)
-          ..add('info', info))
+          ..add('info', info)
+          ..add('isLoading', isLoading))
         .toString();
   }
 }
@@ -561,12 +578,17 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
       _$this._info ??= new RegistrationInfoBuilder();
   set info(RegistrationInfoBuilder info) => _$this._info = info;
 
+  bool _isLoading;
+  bool get isLoading => _$this._isLoading;
+  set isLoading(bool isLoading) => _$this._isLoading = isLoading;
+
   AuthStateBuilder();
 
   AuthStateBuilder get _$this {
     if (_$v != null) {
       _user = _$v.user?.toBuilder();
       _info = _$v.info?.toBuilder();
+      _isLoading = _$v.isLoading;
       _$v = null;
     }
     return this;
@@ -589,8 +611,9 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
   _$AuthState build() {
     _$AuthState _$result;
     try {
-      _$result =
-          _$v ?? new _$AuthState._(user: _user?.build(), info: info.build());
+      _$result = _$v ??
+          new _$AuthState._(
+              user: _user?.build(), info: info.build(), isLoading: isLoading);
     } catch (_) {
       String _$failedField;
       try {

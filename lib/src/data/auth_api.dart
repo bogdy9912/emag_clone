@@ -66,4 +66,7 @@ class AuthApi {
     }
   }
 
+  Future<void> updateProfile(String uid, String name, String telephone) async {
+    await _firestore.doc('users/$uid').update(<String, String>{'displayedName': name, 'telephone': telephone});
+  }
 }

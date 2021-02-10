@@ -1,5 +1,5 @@
-import 'package:emag_clone/src/containers/auth/cart_container.dart';
-import 'package:emag_clone/src/containers/products/products_container.dart';
+import 'package:emag_clone/src/containers/auth/index.dart';
+import 'package:emag_clone/src/containers/products/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:emag_clone/src/presentations/cart/cart_item_widget.dart';

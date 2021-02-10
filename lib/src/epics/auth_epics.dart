@@ -23,6 +23,7 @@ class AuthEpics {
       TypedEpic<AppState, SignOut$>(_signOut),
       TypedEpic<AppState, SynchronizeCart$>(_updateCart),
       TypedEpic<AppState, UpdateFavoriteProducts$>(_updateFavoriteProducts),
+      TypedEpic<AppState, UpdateProfileInfo$>(_updateProfileInfo),
     ]);
   }
 
@@ -85,5 +86,16 @@ class AuthEpics {
                 _auth.updateFavoriteProducts(store.state.auth.user.uid, action.add, action.remove))
             .mapTo(UpdateFavoriteProducts.successful(add: action.add, remove: action.remove))
             .onErrorReturnWith((dynamic error) => UpdateFavoriteProducts.error(error)));
+  }
+
+  Stream<AppAction> _updateProfileInfo(Stream<UpdateProfileInfo$> actions, EpicStore<AppState> store) {
+
+    return actions //
+        .flatMap((UpdateProfileInfo$ action) => Stream<UpdateProfileInfo$>.value(action)
+            .asyncMap((UpdateProfileInfo$ action) {
+              return _auth.updateProfile(store.state.auth.user.uid, action.displayName, action.telephone);
+            })
+            .mapTo(UpdateProfileInfo.successful(displayName: action.displayName, telephone: action.telephone))
+            .onErrorReturnWith((dynamic error) => UpdateProfileInfo.error(error)));
   }
 }

@@ -11,6 +11,7 @@ Reducer<AppState> reducer = combineReducers(<Reducer<AppState>>[
 
 AppState _reducer(AppState state, dynamic action) {
   return state.rebuild((AppStateBuilder b) {
+
     return b
       ..auth = authReducer(state.auth, action).toBuilder()
       ..productsState = productsReducer(state.productsState, action).toBuilder();

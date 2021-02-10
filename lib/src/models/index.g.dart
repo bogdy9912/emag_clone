@@ -25,7 +25,12 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
       serializers.serialize(object.productsState,
           specifiedType: const FullType(ProductsState)),
     ];
-
+    if (object.isLoading != null) {
+      result
+        ..add('isLoading')
+        ..add(serializers.serialize(object.isLoading,
+            specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -48,6 +53,10 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
           result.productsState.replace(serializers.deserialize(value,
               specifiedType: const FullType(ProductsState)) as ProductsState);
           break;
+        case 'isLoading':
+          result.isLoading = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
       }
     }
 
@@ -60,11 +69,13 @@ class _$AppState extends AppState {
   final AuthState auth;
   @override
   final ProductsState productsState;
+  @override
+  final bool isLoading;
 
   factory _$AppState([void Function(AppStateBuilder) updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.auth, this.productsState}) : super._() {
+  _$AppState._({this.auth, this.productsState, this.isLoading}) : super._() {
     if (auth == null) {
       throw new BuiltValueNullFieldError('AppState', 'auth');
     }
@@ -85,19 +96,22 @@ class _$AppState extends AppState {
     if (identical(other, this)) return true;
     return other is AppState &&
         auth == other.auth &&
-        productsState == other.productsState;
+        productsState == other.productsState &&
+        isLoading == other.isLoading;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, auth.hashCode), productsState.hashCode));
+    return $jf($jc($jc($jc(0, auth.hashCode), productsState.hashCode),
+        isLoading.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AppState')
           ..add('auth', auth)
-          ..add('productsState', productsState))
+          ..add('productsState', productsState)
+          ..add('isLoading', isLoading))
         .toString();
   }
 }
@@ -115,12 +129,17 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   set productsState(ProductsStateBuilder productsState) =>
       _$this._productsState = productsState;
 
+  bool _isLoading;
+  bool get isLoading => _$this._isLoading;
+  set isLoading(bool isLoading) => _$this._isLoading = isLoading;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
     if (_$v != null) {
       _auth = _$v.auth?.toBuilder();
       _productsState = _$v.productsState?.toBuilder();
+      _isLoading = _$v.isLoading;
       _$v = null;
     }
     return this;
@@ -145,7 +164,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     try {
       _$result = _$v ??
           new _$AppState._(
-              auth: auth.build(), productsState: productsState.build());
+              auth: auth.build(),
+              productsState: productsState.build(),
+              isLoading: isLoading);
     } catch (_) {
       String _$failedField;
       try {

@@ -1,5 +1,5 @@
 import 'package:emag_clone/src/actions/products/index.dart';
-import 'package:emag_clone/src/containers/products/serach_products_container.dart';
+import 'package:emag_clone/src/containers/products/index.dart';
 import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:emag_clone/src/presentations/products/product_item.dart';
