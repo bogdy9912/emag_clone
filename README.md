@@ -34,7 +34,7 @@ eMag app clone
 * [ ] ask questions (20')
 
 ## Search + Categories (100')
-* [ ] search products (15')
+* [x] search products (15')
 * [ ] navigate all categories and subcategories (25')
 * [ ] recently viewed category (15')
 * [ ] filter and sorting (35')
@@ -55,7 +55,7 @@ eMag app clone
 ## Profile (90')
 * [ ] my orders (15')
 * [ ] delivery addresses (25')
-* [ ] edit profile (15')
+* [x] edit profile (15')
 * [ ] choose what notifications to receive
 * [ ] notifications (35')
     * [ ] a favorite product is on sale

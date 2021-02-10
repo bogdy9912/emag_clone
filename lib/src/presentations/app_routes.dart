@@ -1,5 +1,6 @@
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:emag_clone/src/presentations/cart/cart_page.dart';
+import 'package:emag_clone/src/presentations/cart/checkout/checkout_page.dart';
 import 'package:emag_clone/src/presentations/home.dart';
 import 'package:emag_clone/src/presentations/login/reset_password_page.dart';
 import 'package:emag_clone/src/presentations/product/description_product_page.dart';
@@ -8,6 +9,7 @@ import 'package:emag_clone/src/presentations/profile/edit_profile_page.dart';
 import 'package:emag_clone/src/presentations/sign_up/displayed_name_page.dart';
 import 'package:emag_clone/src/presentations/sign_up/email_page.dart';
 import 'package:emag_clone/src/presentations/sign_up/password_page.dart';
+import 'package:emag_clone/src/presentations/widgets/add_address_page.dart';
 import 'package:flutter/widgets.dart';
 
 import 'products/search_page.dart';
@@ -24,6 +26,8 @@ class AppRoutes {
   static String productPage = '/productPage';
   static String descriptionProductPage = '/descriptionProductPage';
   static String editProfilePage = '/editProfilePage';
+  static String checkoutPage = '/checkoutPage';
+  static String addAddressPage = '/addAddressPage';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUpEmail: (BuildContext context) => const EmailPage(),
@@ -41,5 +45,7 @@ class AppRoutes {
       return  DescriptionProductPage(description: arg);
     },
     editProfilePage: (BuildContext context) => const EditProfilePage(),
+    checkoutPage: (BuildContext context) => const CheckoutPage(),
+    addAddressPage: (BuildContext context) => const AddAddressPage(),
   };
 }

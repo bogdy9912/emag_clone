@@ -69,4 +69,17 @@ class AuthApi {
   Future<void> updateProfile(String uid, String name, String telephone) async {
     await _firestore.doc('users/$uid').update(<String, String>{'displayedName': name, 'telephone': telephone});
   }
+
+  Future<AddressPoint> updateAddresses({
+    @required String uid,
+    @required String contactName,
+    @required String contactPhone,
+    @required String address,
+    @required String city,
+    @required String town,
+  }) async {
+    final DocumentReference ref = _firestore.collection('NOT USE').doc();
+// sau dau un obiect de tip address point -- trb gandit cu add si remove
+
+  }
 }

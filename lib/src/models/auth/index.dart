@@ -15,3 +15,4 @@ part 'cart.dart';
 part 'index.g.dart';
 
 part 'registration_info.dart';
+part 'address_point.dart';

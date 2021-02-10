@@ -2,6 +2,7 @@ import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/containers/products/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
+import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:emag_clone/src/presentations/cart/cart_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -57,27 +58,44 @@ class CartPage extends StatelessWidget {
                     horizontal: 16.0,
                     vertical: 8,
                   ),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    child: Container(
-                      width: double.infinity,
-                      child: const Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(12.0),
-                          child: Text(
-                            'Checkout',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                  child: Stack(
+                    children: <Widget>[RaisedButton(
+
+                      color: Colors.blueAccent,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      child: Container(
+                        width: double.infinity,
+                        child: const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(12.0),
+                            child: Text(
+                              'Checkout',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),
                       ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.checkoutPage);
+                      },
                     ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.horizontal(left: Radius.circular(12)),
+                        ),
+                        height: 48,
+                        width: 30,
+                        child: const Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        ),
+                      ),],
                   ),
-                )
+                ),
               ],
             );
           },
