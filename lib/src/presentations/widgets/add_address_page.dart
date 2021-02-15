@@ -1,8 +1,11 @@
 import 'dart:ui';
 
+import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
+import 'package:emag_clone/src/models/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class AddAddressPage extends StatefulWidget {
   const AddAddressPage({Key key, this.isEditing}) : super(key: key);
@@ -14,7 +17,7 @@ class AddAddressPage extends StatefulWidget {
 }
 
 class _AddAddressPageState extends State<AddAddressPage> {
-  final TextEditingController _name = TextEditingController();
+/*  final TextEditingController _name = TextEditingController();
 
   final TextEditingController _telephone = TextEditingController();
 
@@ -22,172 +25,202 @@ class _AddAddressPageState extends State<AddAddressPage> {
 
   final TextEditingController _city = TextEditingController();
 
-  final TextEditingController _town = TextEditingController();
+  final TextEditingController _town = TextEditingController();*/
+
+  String _name;
+  String _telephone;
+  String _address;
+  String _city;
+  String _town;
 
   @override
   Widget build(BuildContext context) {
     return UserContainer(
       builder: (BuildContext context, AppUser user) {
-        if (widget.isEditing != null){
-          _name.text = widget.isEditing.contactName;
-          _telephone.text = widget.isEditing.contactPhone;
-          _address.text = widget.isEditing.address;
-          _city.text = widget.isEditing.city;
-          _town.text = widget.isEditing.town;
-        }
-        else{
-          _name.text = user.displayedName;
-          _telephone.text = user.telephone??'';
+        if (widget.isEditing != null) {
+          _name = widget.isEditing.contactName;
+          _telephone = widget.isEditing.contactPhone;
+          _address = widget.isEditing.address;
+          _city = widget.isEditing.city;
+          _town = widget.isEditing.town;
+        } else {
+          _name = user.displayedName;
+          _telephone = user.telephone ?? '';
         }
         return Form(
-        child: Scaffold(
-          appBar: AppBar(
-            iconTheme: const IconThemeData(color: Colors.blue),
-            title: Text(
-              widget.isEditing != null ? 'Edit address' : 'Address',
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            backgroundColor: Colors.white,
-            actions: <Widget>[
-              Builder(
-                builder:(BuildContext context) => FlatButton(
-                  child: const Text('SALVEAZA', style: TextStyle(color: Colors.blue)),
-                  onPressed: () {
-                    final bool valid = Form.of(context).validate();
-                    if (valid){
-
-                    }
-                  },
+          child: Scaffold(
+            appBar: AppBar(
+              iconTheme: const IconThemeData(color: Colors.blue),
+              title: Text(
+                widget.isEditing != null ? 'Edit address' : 'Address',
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
-            ],
-          ),
-          body: Container(
-            height: double.infinity,
-            width: double.infinity,
-            color: Colors.grey[200],
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(
-                      'Contact person',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
+              backgroundColor: Colors.white,
+              actions: <Widget>[
+                Builder(
+                  builder: (BuildContext context) => FlatButton(
+                    child: const Text('SAVE', style: TextStyle(color: Colors.blue)),
+                    onPressed: () {
+                      final bool valid = Form.of(context).validate();
+                      if (valid) {
+                        Form.of(context).save();
+                        final AddressPoint add = AddressPoint((AddressPointBuilder b) {
+                          b
+                            ..contactName = _name
+                            ..contactPhone = _telephone
+                            ..address = _address
+                            ..city = _city
+                            ..town = _town;
+                        });
+                        StoreProvider.of<AppState>(context).dispatch(UpdateAddresses(uid: user.uid, add: add));
+                        Navigator.pop(context);
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
+            body: Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Colors.grey[200],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Contact person',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          TextFormField(
-                            controller: _name,
-                            keyboardType: TextInputType.name,
-                            validator: (String value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a name';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                              labelText: 'Nume Prenume',
+                    Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            TextFormField(
+                              initialValue: _name,
+                              keyboardType: TextInputType.name,
+                              validator: (String value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a name';
+                                }
+                                return null;
+                              },
+                              onSaved: (String value) {
+                                _name = value;
+                              },
+                              decoration: const InputDecoration(
+                                labelText: 'Nume Prenume',
+                              ),
                             ),
-                          ),
-                          TextFormField(
-                            controller: _telephone,
-                            keyboardType: TextInputType.phone,
-                            validator: (String value) {
-                              if (value.isEmpty || value.length != 10 || value[0] != '0') {
-                                return 'Please enter a valid number';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                              labelText: 'Telephone',
+                            TextFormField(
+                              initialValue: _telephone,
+                              keyboardType: TextInputType.phone,
+                              validator: (String value) {
+                                if (value.isEmpty || value.length != 10 || value[0] != '0') {
+                                  return 'Please enter a valid number';
+                                }
+                                return null;
+                              },
+                              onSaved: (String value) {
+                                _telephone = value;
+                              },
+                              decoration: const InputDecoration(
+                                labelText: 'Telephone',
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(
-                      'Address point',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Address point',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          TextFormField(
-                            controller: _address,
-                            keyboardType: TextInputType.streetAddress,
-                            validator: (String value) {
-                              if (value.isEmpty) {
-                                return 'Please enter an address';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                              labelText: 'Address',
+                    Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            TextFormField(
+                              initialValue: _address,
+                              keyboardType: TextInputType.streetAddress,
+                              validator: (String value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter an address';
+                                }
+                                return null;
+                              },
+                              onSaved: (String value) {
+                                _address = value;
+                              },
+                              decoration: const InputDecoration(
+                                labelText: 'Address',
+                              ),
                             ),
-                          ),
-                          TextFormField(
-                            controller: _city,
-                            keyboardType: TextInputType.name,
-                            validator: (String value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a city';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                              labelText: 'City',
+                            TextFormField(
+                              initialValue: _city,
+                              keyboardType: TextInputType.name,
+                              validator: (String value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a city';
+                                }
+                                return null;
+                              },
+                              onSaved: (String value) {
+                                _city = value;
+                              },
+                              decoration: const InputDecoration(
+                                labelText: 'City',
+                              ),
                             ),
-                          ),
-                          TextFormField(
-                            controller: _town,
-                            keyboardType: TextInputType.name,
-                            validator: (String value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a town';
-                              }
-                              return null;
-                            },
-                            decoration: const InputDecoration(
-                              labelText: 'Town',
+                            TextFormField(
+                              initialValue: _town,
+                              keyboardType: TextInputType.name,
+                              validator: (String value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a town';
+                                }
+                                return null;
+                              },
+                              onSaved: (String value) {
+                                _town = value;
+                              },
+                              decoration: const InputDecoration(
+                                labelText: 'Town',
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      );
+        );
       },
     );
   }

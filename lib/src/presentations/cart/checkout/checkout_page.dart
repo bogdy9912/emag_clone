@@ -1,5 +1,6 @@
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
+import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:emag_clone/src/presentations/cart/checkout/home_delivery_tab.dart';
 import 'package:emag_clone/src/presentations/cart/checkout/personal_pickup_tab.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,9 @@ class CheckoutPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.paymentPage);
+                      },
                     ),
                     Container(
                       decoration: const BoxDecoration(

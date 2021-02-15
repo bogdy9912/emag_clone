@@ -11,6 +11,8 @@ Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, UpdateFavoriteProductsSuccessful>(_updateFavoriteProductsSuccessful),
   TypedReducer<AuthState, UpdateProfileInfo>(_updateProfileInfo),
   TypedReducer<AuthState, UpdateProfileInfoSuccessful>(_updateProfileInfoSuccessful),
+  TypedReducer<AuthState, UpdateAddressesSuccessful>(_updateAddressesSuccessful),
+  TypedReducer<AuthState, UpdateCheckoutAddress$>(_updateCheckoutAddress),
 ]);
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
@@ -94,3 +96,18 @@ AuthState _updateProfileInfoSuccessful(AuthState state, UpdateProfileInfoSuccess
   });
 }
 
+AuthState _updateAddressesSuccessful(AuthState state, UpdateAddressesSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    if (action.add != null) {
+      b.user.addresses.addEntries([MapEntry<String, AddressPoint>(action.add.id, action.add)]);
+    } else if (action.remove != null) {
+      b.user.addresses.remove(action.remove.id);
+    } else if (action.edit != null) {
+      b.user.addresses.updateValue(action.edit.id, (_) => action.edit);
+    }
+  });
+}
+
+AuthState _updateCheckoutAddress(AuthState state, UpdateCheckoutAddress$ action) {
+  return state.rebuild((AuthStateBuilder b) => b.checkoutAddress = action.address.toBuilder());
+}

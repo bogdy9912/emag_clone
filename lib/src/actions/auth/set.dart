@@ -20,3 +20,9 @@ abstract class UpdateProfileInfo with _$UpdateProfileInfo implements AppAction {
   const factory UpdateProfileInfo.error(Object error) = UpdateProfileInfoError;
 }
 
+@freezed
+abstract class UpdateCheckoutAddress with _$UpdateCheckoutAddress implements AppAction {
+  const factory UpdateCheckoutAddress({AddressPoint address}) = UpdateCheckoutAddress$;
+}
+
+

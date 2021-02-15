@@ -1,6 +1,7 @@
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:emag_clone/src/presentations/cart/cart_page.dart';
 import 'package:emag_clone/src/presentations/cart/checkout/checkout_page.dart';
+import 'package:emag_clone/src/presentations/cart/checkout/payment_page.dart';
 import 'package:emag_clone/src/presentations/home.dart';
 import 'package:emag_clone/src/presentations/login/reset_password_page.dart';
 import 'package:emag_clone/src/presentations/product/description_product_page.dart';
@@ -10,6 +11,7 @@ import 'package:emag_clone/src/presentations/sign_up/displayed_name_page.dart';
 import 'package:emag_clone/src/presentations/sign_up/email_page.dart';
 import 'package:emag_clone/src/presentations/sign_up/password_page.dart';
 import 'package:emag_clone/src/presentations/widgets/add_address_page.dart';
+import 'package:emag_clone/src/presentations/widgets/select_address_page.dart';
 import 'package:flutter/widgets.dart';
 
 import 'products/search_page.dart';
@@ -28,6 +30,8 @@ class AppRoutes {
   static String editProfilePage = '/editProfilePage';
   static String checkoutPage = '/checkoutPage';
   static String addAddressPage = '/addAddressPage';
+  static String selectAddressPage = '/selectAddressPage';
+  static String paymentPage = '/paymentPage';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUpEmail: (BuildContext context) => const EmailPage(),
@@ -47,5 +51,7 @@ class AppRoutes {
     editProfilePage: (BuildContext context) => const EditProfilePage(),
     checkoutPage: (BuildContext context) => const CheckoutPage(),
     addAddressPage: (BuildContext context) => const AddAddressPage(),
+    selectAddressPage: (BuildContext context) => const SelectAddressPage(),
+    paymentPage: (BuildContext context) => const PaymentPage(),
   };
 }

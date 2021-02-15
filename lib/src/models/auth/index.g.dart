@@ -144,6 +144,12 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
         ..add(serializers.serialize(object.isLoading,
             specifiedType: const FullType(bool)));
     }
+    if (object.checkoutAddress != null) {
+      result
+        ..add('checkoutAddress')
+        ..add(serializers.serialize(object.checkoutAddress,
+            specifiedType: const FullType(AddressPoint)));
+    }
     return result;
   }
 
@@ -170,6 +176,10 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
         case 'isLoading':
           result.isLoading = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'checkoutAddress':
+          result.checkoutAddress.replace(serializers.deserialize(value,
+              specifiedType: const FullType(AddressPoint)) as AddressPoint);
           break;
       }
     }
@@ -357,8 +367,6 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
   Iterable<Object> serialize(Serializers serializers, AddressPoint object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'contactName',
       serializers.serialize(object.contactName,
           specifiedType: const FullType(String)),
@@ -373,7 +381,12 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
       'town',
       serializers.serialize(object.town, specifiedType: const FullType(String)),
     ];
-
+    if (object.id != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(object.id,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -630,11 +643,14 @@ class _$AuthState extends AuthState {
   final RegistrationInfo info;
   @override
   final bool isLoading;
+  @override
+  final AddressPoint checkoutAddress;
 
   factory _$AuthState([void Function(AuthStateBuilder) updates]) =>
       (new AuthStateBuilder()..update(updates)).build();
 
-  _$AuthState._({this.user, this.info, this.isLoading}) : super._() {
+  _$AuthState._({this.user, this.info, this.isLoading, this.checkoutAddress})
+      : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('AuthState', 'info');
     }
@@ -653,13 +669,15 @@ class _$AuthState extends AuthState {
     return other is AuthState &&
         user == other.user &&
         info == other.info &&
-        isLoading == other.isLoading;
+        isLoading == other.isLoading &&
+        checkoutAddress == other.checkoutAddress;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, user.hashCode), info.hashCode), isLoading.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, user.hashCode), info.hashCode), isLoading.hashCode),
+        checkoutAddress.hashCode));
   }
 
   @override
@@ -667,7 +685,8 @@ class _$AuthState extends AuthState {
     return (newBuiltValueToStringHelper('AuthState')
           ..add('user', user)
           ..add('info', info)
-          ..add('isLoading', isLoading))
+          ..add('isLoading', isLoading)
+          ..add('checkoutAddress', checkoutAddress))
         .toString();
   }
 }
@@ -688,6 +707,12 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
   bool get isLoading => _$this._isLoading;
   set isLoading(bool isLoading) => _$this._isLoading = isLoading;
 
+  AddressPointBuilder _checkoutAddress;
+  AddressPointBuilder get checkoutAddress =>
+      _$this._checkoutAddress ??= new AddressPointBuilder();
+  set checkoutAddress(AddressPointBuilder checkoutAddress) =>
+      _$this._checkoutAddress = checkoutAddress;
+
   AuthStateBuilder();
 
   AuthStateBuilder get _$this {
@@ -695,6 +720,7 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
       _user = _$v.user?.toBuilder();
       _info = _$v.info?.toBuilder();
       _isLoading = _$v.isLoading;
+      _checkoutAddress = _$v.checkoutAddress?.toBuilder();
       _$v = null;
     }
     return this;
@@ -719,7 +745,10 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
     try {
       _$result = _$v ??
           new _$AuthState._(
-              user: _user?.build(), info: info.build(), isLoading: isLoading);
+              user: _user?.build(),
+              info: info.build(),
+              isLoading: isLoading,
+              checkoutAddress: _checkoutAddress?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -727,6 +756,9 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
         _user?.build();
         _$failedField = 'info';
         info.build();
+
+        _$failedField = 'checkoutAddress';
+        _checkoutAddress?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AuthState', _$failedField, e.toString());
@@ -1075,9 +1107,6 @@ class _$AddressPoint extends AddressPoint {
       this.city,
       this.town})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('AddressPoint', 'id');
-    }
     if (contactName == null) {
       throw new BuiltValueNullFieldError('AddressPoint', 'contactName');
     }

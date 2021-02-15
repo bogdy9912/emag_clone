@@ -70,16 +70,34 @@ class AuthApi {
     await _firestore.doc('users/$uid').update(<String, String>{'displayedName': name, 'telephone': telephone});
   }
 
-  Future<AddressPoint> updateAddresses({
+  Future<void> updateAddresses({
     @required String uid,
-    @required String contactName,
-    @required String contactPhone,
-    @required String address,
-    @required String city,
-    @required String town,
+    AddressPoint add,
+    AddressPoint remove,
+    AddressPoint edit,
   }) async {
-    final DocumentReference ref = _firestore.collection('NOT USE').doc();
-// sau dau un obiect de tip address point -- trb gandit cu add si remove
-
+    print('data');
+    print('uid: $uid');
+    print('add: $add');
+    print('remove: $remove');
+    print('edit: $edit');
+    if (add != null) {
+      print('add a intrat');
+      final DocumentReference ref = _firestore.collection('NOT USE').doc();
+      final AddressPoint newAdd = add.rebuild((AddressPointBuilder b) => b.id = ref.id);
+    print('add: $newAdd');
+      _firestore.doc('users/$uid').update(<String, dynamic>{'addresses':
+        <String, dynamic>{'${newAdd.id}': newAdd.json}
+      });
+      print('add a terminat');
+    } else if (remove != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{'addresses':
+        <String, dynamic>{'${remove.id}': FieldValue.delete()}
+      });
+    } else if (edit != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{'addresses':
+        <String, dynamic>{'${edit.id}': edit.json}
+      });
+    }
   }
 }

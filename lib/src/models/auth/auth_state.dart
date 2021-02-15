@@ -17,6 +17,9 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
   @nullable
   bool get isLoading;
 
+  @nullable
+  AddressPoint get checkoutAddress;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<AuthState> get serializer => _$authStateSerializer;

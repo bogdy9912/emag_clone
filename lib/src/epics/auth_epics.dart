@@ -24,6 +24,7 @@ class AuthEpics {
       TypedEpic<AppState, SynchronizeCart$>(_updateCart),
       TypedEpic<AppState, UpdateFavoriteProducts$>(_updateFavoriteProducts),
       TypedEpic<AppState, UpdateProfileInfo$>(_updateProfileInfo),
+      TypedEpic<AppState, UpdateAddresses$>(_updateAddresses),
     ]);
   }
 
@@ -89,7 +90,6 @@ class AuthEpics {
   }
 
   Stream<AppAction> _updateProfileInfo(Stream<UpdateProfileInfo$> actions, EpicStore<AppState> store) {
-
     return actions //
         .flatMap((UpdateProfileInfo$ action) => Stream<UpdateProfileInfo$>.value(action)
             .asyncMap((UpdateProfileInfo$ action) {
@@ -97,5 +97,16 @@ class AuthEpics {
             })
             .mapTo(UpdateProfileInfo.successful(displayName: action.displayName, telephone: action.telephone))
             .onErrorReturnWith((dynamic error) => UpdateProfileInfo.error(error)));
+  }
+
+  Stream<AppAction> _updateAddresses(Stream<UpdateAddresses$> actions, EpicStore<AppState> store) {
+    print('epics');
+    return actions //
+        .flatMap((UpdateAddresses$ action) => Stream<UpdateAddresses$>.value(action)
+            .asyncMap((UpdateAddresses$ action) =>
+                _auth.updateAddresses(uid: action.uid, add: action.add, remove: action.remove, edit: action.remove))
+            .mapTo(
+                UpdateAddresses.successful(uid: action.uid, add: action.add, remove: action.remove, edit: action.edit))
+            .onErrorReturnWith((dynamic error) => UpdateAddresses.error(error)));
   }
 }
