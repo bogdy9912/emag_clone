@@ -46,8 +46,8 @@ eMag app clone
 * [x] show total amount (10')
 
 ## Checkout (45')
-* [ ] add address (20')
-* [ ] add payment method (25')
+* [x] add address (20')
+* [x] add payment method (25')
 
 ## Favorites (30')
 * [x] show list of favored products (15')
