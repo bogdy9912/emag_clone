@@ -1,10 +1,13 @@
+import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/containers/products/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
+import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:emag_clone/src/presentations/cart/cart_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key key}) : super(key: key);
@@ -14,6 +17,23 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your cart'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              child: const Chip(
+                backgroundColor: Colors.white,
+                label: Text(
+                  'Clear',
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
+                ),
+              ),
+              onTap: () {
+                StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
+              },
+            ),
+          ),
+        ],
       ),
       body: ProductsContainer(
         builder: (BuildContext context, List<Product> products) => CartContainer(
@@ -59,29 +79,29 @@ class CartPage extends StatelessWidget {
                     vertical: 8,
                   ),
                   child: Stack(
-                    children: <Widget>[RaisedButton(
-
-                      color: Colors.blueAccent,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      child: Container(
-                        width: double.infinity,
-                        child: const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: Text(
-                              'Checkout',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
+                    children: <Widget>[
+                      RaisedButton(
+                        color: Colors.blueAccent,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        child: Container(
+                          width: double.infinity,
+                          child: const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(12.0),
+                              child: Text(
+                                'Checkout',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                           ),
                         ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, AppRoutes.checkoutPage);
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.checkoutPage);
-                      },
-                    ),
                       Container(
                         decoration: const BoxDecoration(
                           color: Colors.red,
@@ -93,7 +113,8 @@ class CartPage extends StatelessWidget {
                           Icons.arrow_forward,
                           color: Colors.white,
                         ),
-                      ),],
+                      ),
+                    ],
                   ),
                 ),
               ],

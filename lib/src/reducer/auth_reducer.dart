@@ -54,15 +54,19 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
         b.user.cart.items[index] = b.user.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity + 1);
       }
     } else if (action.removeProduct != null) {
-      final int index = cartState.items.indexWhere((CartItem item) => item.productId == action.addProduct.id);
+      final int index = cartState.items.indexWhere((CartItem item) => item.productId == action.removeProduct.id);
       if (index == -1) {
         // eroare
         // ar trb sa fac si pt cazul in care ajunge quantity la 0? si sa fac clear la product? sau fac din UI sa fie minim 1bucs
       } else {
-        b.user.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity - 1);
+        if (b.user.cart.items[index].quantity>0) {
+          b.user.cart.items[index] = b.user.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity - 1);
+        }else{
+          b.user.cart.items.removeWhere((CartItem item) => item.productId == action.removeProduct.id);
+        }
       }
     } else if (action.clearProduct != null) {
-      b.user.cart.items.removeWhere((CartItem item) => item.productId == action.addProduct.id);
+      b.user.cart.items.removeWhere((CartItem item) => item.productId == action.clearProduct.id);
     } else {
       b.user.cart = Cart().toBuilder();
     }
