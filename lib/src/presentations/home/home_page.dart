@@ -3,6 +3,7 @@ import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/presentations/cart/cart_page.dart';
 import 'package:emag_clone/src/presentations/products/favorite_page.dart';
 import 'package:emag_clone/src/presentations/products/products_page.dart';
+import 'package:emag_clone/src/presentations/products/search_page.dart';
 import 'package:emag_clone/src/presentations/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -30,9 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: <Widget>[
         const ProductsPage(),
-        Container(
-          color: Colors.green,
-        ),
+        const SearchPage(),
         const CartPage(),
         const FavoritePage(),
         const ProfilePage(),
