@@ -24,6 +24,9 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
       'productsState',
       serializers.serialize(object.productsState,
           specifiedType: const FullType(ProductsState)),
+      'ordersState',
+      serializers.serialize(object.ordersState,
+          specifiedType: const FullType(OrdersState)),
     ];
     if (object.isLoading != null) {
       result
@@ -57,6 +60,10 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
           result.isLoading = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
+        case 'ordersState':
+          result.ordersState.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OrdersState)) as OrdersState);
+          break;
       }
     }
 
@@ -71,16 +78,23 @@ class _$AppState extends AppState {
   final ProductsState productsState;
   @override
   final bool isLoading;
+  @override
+  final OrdersState ordersState;
 
   factory _$AppState([void Function(AppStateBuilder) updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.auth, this.productsState, this.isLoading}) : super._() {
+  _$AppState._(
+      {this.auth, this.productsState, this.isLoading, this.ordersState})
+      : super._() {
     if (auth == null) {
       throw new BuiltValueNullFieldError('AppState', 'auth');
     }
     if (productsState == null) {
       throw new BuiltValueNullFieldError('AppState', 'productsState');
+    }
+    if (ordersState == null) {
+      throw new BuiltValueNullFieldError('AppState', 'ordersState');
     }
   }
 
@@ -97,13 +111,16 @@ class _$AppState extends AppState {
     return other is AppState &&
         auth == other.auth &&
         productsState == other.productsState &&
-        isLoading == other.isLoading;
+        isLoading == other.isLoading &&
+        ordersState == other.ordersState;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, auth.hashCode), productsState.hashCode),
-        isLoading.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, auth.hashCode), productsState.hashCode),
+            isLoading.hashCode),
+        ordersState.hashCode));
   }
 
   @override
@@ -111,7 +128,8 @@ class _$AppState extends AppState {
     return (newBuiltValueToStringHelper('AppState')
           ..add('auth', auth)
           ..add('productsState', productsState)
-          ..add('isLoading', isLoading))
+          ..add('isLoading', isLoading)
+          ..add('ordersState', ordersState))
         .toString();
   }
 }
@@ -133,6 +151,12 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   bool get isLoading => _$this._isLoading;
   set isLoading(bool isLoading) => _$this._isLoading = isLoading;
 
+  OrdersStateBuilder _ordersState;
+  OrdersStateBuilder get ordersState =>
+      _$this._ordersState ??= new OrdersStateBuilder();
+  set ordersState(OrdersStateBuilder ordersState) =>
+      _$this._ordersState = ordersState;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
@@ -140,6 +164,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
       _auth = _$v.auth?.toBuilder();
       _productsState = _$v.productsState?.toBuilder();
       _isLoading = _$v.isLoading;
+      _ordersState = _$v.ordersState?.toBuilder();
       _$v = null;
     }
     return this;
@@ -166,7 +191,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
           new _$AppState._(
               auth: auth.build(),
               productsState: productsState.build(),
-              isLoading: isLoading);
+              isLoading: isLoading,
+              ordersState: ordersState.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -174,6 +200,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
         auth.build();
         _$failedField = 'productsState';
         productsState.build();
+
+        _$failedField = 'ordersState';
+        ordersState.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppState', _$failedField, e.toString());

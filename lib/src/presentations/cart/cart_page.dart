@@ -1,4 +1,5 @@
 import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/orders/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/containers/products/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';

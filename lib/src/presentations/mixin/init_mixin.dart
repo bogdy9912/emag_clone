@@ -23,5 +23,5 @@ mixin InitMixin<S extends StatefulWidget> on State<S> {
     _initStore();
   }
 
-Future<Store<AppState>> get future => _completer.future;
+  Future<Store<AppState>> get future => _completer.future;
 }

@@ -9,7 +9,6 @@ abstract class UpdateRegistrationInfo with _$UpdateRegistrationInfo implements A
   }) = UpdateRegistrationInfo$;
 }
 
-
 @freezed
 abstract class UpdateProfileInfo with _$UpdateProfileInfo implements AppAction {
   const factory UpdateProfileInfo({String displayName, String telephone}) = UpdateProfileInfo$;
@@ -24,5 +23,3 @@ abstract class UpdateProfileInfo with _$UpdateProfileInfo implements AppAction {
 abstract class UpdateCheckoutAddress with _$UpdateCheckoutAddress implements AppAction {
   const factory UpdateCheckoutAddress({AddressPoint address}) = UpdateCheckoutAddress$;
 }
-
-

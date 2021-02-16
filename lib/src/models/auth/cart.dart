@@ -16,9 +16,10 @@ abstract class Cart implements Built<Cart, CartBuilder> {
   int get totalProducts {
     return items.fold(0, (int sum, CartItem current) => sum + current.quantity);
   }
+
   @memoized
   double get totalAmount {
-    return items.fold(0, (double sum, CartItem current) => sum + current.quantity * current.price??0);
+    return items.fold(0, (double sum, CartItem current) => sum + current.quantity * current.price ?? 0);
   }
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
@@ -27,13 +28,12 @@ abstract class Cart implements Built<Cart, CartBuilder> {
 }
 
 abstract class CartItem implements Built<CartItem, CartItemBuilder> {
-  factory CartItem({@required String productId, @required int quantity,@required double price}) {
+  factory CartItem({@required String productId, @required int quantity, @required double price}) {
     return _$CartItem((CartItemBuilder b) {
       b
         ..productId = productId
         ..quantity = quantity
         ..price = price;
-
     });
   }
 
@@ -44,7 +44,6 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
   String get productId;
 
   int get quantity;
-
 
   double get price;
 

@@ -1,14 +1,15 @@
-import 'package:emag_clone/src/containers/auth/checkout_address_container.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
+import 'package:emag_clone/src/containers/orders/order_info_container.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
+import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class HomeDeliveryTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CheckoutAddressContainer(
-      builder: (BuildContext context, AddressPoint addressPoint) {
+    return OrderInfoContainer(
+      builder: (BuildContext context, OrderInfo info) {
         return UserContainer(
           builder: (BuildContext context, AppUser user) {
             if (user.addresses.isEmpty) {
@@ -53,7 +54,7 @@ class HomeDeliveryTab extends StatelessWidget {
                   ),
                 ],
               );
-            } else if (addressPoint != null) {
+            } else if (info?.address != null) {
               return Column(
                 children: <Widget>[
                   const Padding(
@@ -71,8 +72,8 @@ class HomeDeliveryTab extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text('${addressPoint.contactName} - ${addressPoint.contactPhone}'),
-                        Text('${addressPoint.address} - ${addressPoint.city}, ${addressPoint.town}'),
+                        Text('${info.address.contactName} - ${info.address.contactPhone}'),
+                        Text('${info.address.address} - ${info.address.city}, ${info.address.town}'),
                       ],
                     ),
                   ),

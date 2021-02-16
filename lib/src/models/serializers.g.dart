@@ -13,6 +13,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AuthState.serializer)
       ..add(Cart.serializer)
       ..add(CartItem.serializer)
+      ..add(Order.serializer)
+      ..add(OrderInfo.serializer)
+      ..add(OrdersState.serializer)
+      ..add(PaymentMethod.serializer)
       ..add(Product.serializer)
       ..add(ProductState.serializer)
       ..add(ProductsState.serializer)
@@ -20,6 +24,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CartItem)]),
           () => new ListBuilder<CartItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(CartItem)]),
+          () => new ListBuilder<CartItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(CartItem)]),
+          () => new ListBuilder<CartItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Order)]),
+          () => new ListBuilder<Order>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Product)]),
           () => new ListBuilder<Product>())

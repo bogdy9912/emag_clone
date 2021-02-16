@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emag_clone/src/actions/auth/index.dart';
 import 'package:emag_clone/src/data/auth_api.dart';
+import 'package:emag_clone/src/data/orders_api.dart';
 import 'package:emag_clone/src/data/products_api.dart';
 import 'package:emag_clone/src/epics/app_epics.dart';
 import 'package:emag_clone/src/models/index.dart';
@@ -19,7 +20,8 @@ Future<Store<AppState>> init() async {
 
   final AuthApi _authApi = AuthApi(firestore: FirebaseFirestore.instance, auth: FirebaseAuth.instance);
   final ProductsApi _productsApi = ProductsApi(firestore: FirebaseFirestore.instance);
-  final AppEpics epic = AppEpics(authApi: _authApi, productsApi: _productsApi);
+  final OrdersApi _ordersApi = OrdersApi(firestore: FirebaseFirestore.instance);
+  final AppEpics epic = AppEpics(authApi: _authApi, productsApi: _productsApi, ordersApi: _ordersApi);
 
   return Store<AppState>(
     reducer,

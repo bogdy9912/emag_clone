@@ -50,38 +50,38 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ],
           ),
           body: StoreContainer(
-            builder:(BuildContext context, AuthState appState) {
+            builder: (BuildContext context, AuthState appState) {
               print(appState.isLoading);
-              if (appState.isLoading??false) {
+              if (appState.isLoading ?? false) {
                 return const Center(child: CircularProgressIndicator());
               }
               return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: <Widget>[
-                  TextField(
-                    controller: _name,
-                    decoration: const InputDecoration(
-                      labelText: 'Name',
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      controller: _name,
+                      decoration: const InputDecoration(
+                        labelText: 'Name',
+                      ),
                     ),
-                  ),
-                  TextField(
-                    controller: _telephone,
-                    decoration: const InputDecoration(
-                      labelText: 'Telephone number',
+                    TextField(
+                      controller: _telephone,
+                      decoration: const InputDecoration(
+                        labelText: 'Telephone number',
+                      ),
                     ),
-                  ),
-                  TextField(
-                    enabled: false,
-                    controller: _email,
-                    style: const TextStyle(color: Colors.grey),
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
+                    TextField(
+                      enabled: false,
+                      controller: _email,
+                      style: const TextStyle(color: Colors.grey),
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            );
+                  ],
+                ),
+              );
             },
           ),
         );

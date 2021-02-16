@@ -1,4 +1,4 @@
-import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/orders/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
 import 'package:emag_clone/src/models/index.dart';
@@ -71,7 +71,7 @@ class SelectAddressPage extends StatelessWidget {
                         ),
                         leading: const Icon(Icons.radio_button_checked),
                         onTap: () {
-                          StoreProvider.of<AppState>(context).dispatch(UpdateCheckoutAddress(address: address));
+                          StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(address: address));
                           Navigator.pop(context);
                         },
                       );

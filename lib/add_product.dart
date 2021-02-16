@@ -63,7 +63,7 @@ Future<void> main() async {
         ])
         ..review = 0.0
         ..productState = ProductState.inStock
-        ..searchIndex =ListBuilder<String>(<String>[item['title']].searchIndex);
+        ..searchIndex = ListBuilder<String>(<String>[item['title']].searchIndex);
     });
     await ref.set(product.json);
   }

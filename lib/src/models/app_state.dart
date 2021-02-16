@@ -2,7 +2,6 @@ part of models;
 
 abstract class AppState implements Built<AppState, AppStateBuilder> {
   factory AppState.initialState() {
-
     return _$AppState();
   }
 
@@ -16,6 +15,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   @nullable
   bool get isLoading;
+
+  OrdersState get ordersState;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

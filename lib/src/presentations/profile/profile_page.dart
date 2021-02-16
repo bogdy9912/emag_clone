@@ -1,7 +1,10 @@
+import 'package:emag_clone/src/actions/orders/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/models/auth/index.dart';
+import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/presentations/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
@@ -60,7 +63,8 @@ class ProfilePage extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 onTap: () {
-                  print('');
+                  StoreProvider.of<AppState>(context).dispatch(const GetOrders());
+                  Navigator.pushNamed(context, AppRoutes.myOrdersPage);
                 },
               ),
               ListTile(

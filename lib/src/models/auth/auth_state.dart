@@ -13,7 +13,6 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
 
   RegistrationInfo get info;
 
-
   @nullable
   bool get isLoading;
 
