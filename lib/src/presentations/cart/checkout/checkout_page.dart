@@ -18,6 +18,12 @@ class CheckoutPage extends StatelessWidget {
       builder: (BuildContext context, Cart cart) {
         return OrderInfoContainer(
           builder: (BuildContext context, OrderInfo info) {
+            double total;
+            if (cart.totalAmount > 2000) {
+              total = cart.totalAmount;
+            } else {
+              total = cart.totalAmount + 12.90;
+            }
             return Scaffold(
               appBar: AppBar(
                 iconTheme: const IconThemeData().copyWith(color: Colors.blue),
@@ -107,7 +113,7 @@ class CheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '${(cart.totalAmount + 12.90).toStringAsFixed(2)} lei',
+                                '${total.toStringAsFixed(2)} lei',
                                 style: const TextStyle(
                                   color: Colors.red,
                                   fontWeight: FontWeight.bold,
@@ -144,12 +150,7 @@ class CheckoutPage extends StatelessWidget {
                             onPressed: () {
                               if (info?.address != null) {
                                 Navigator.pushNamed(context, AppRoutes.paymentPage);
-                                double total;
-                                if (cart.totalAmount > 2000) {
-                                  total = cart.totalAmount;
-                                } else {
-                                  total = cart.totalAmount + 12.90;
-                                }
+
 
                                 StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(total: total));
                                 StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(products: cart.items));

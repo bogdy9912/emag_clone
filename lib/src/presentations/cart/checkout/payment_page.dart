@@ -36,14 +36,21 @@ class _PaymentPageState extends State<PaymentPage> {
         ),
       );
     } else {
+      StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
+      StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _responseSynchronize));
       Navigator.popUntil(
         context,
         (Route<dynamic> route) => route.isFirst,
       );
       Navigator.pushReplacementNamed(context, AppRoutes.home);
 
-      StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
       StoreProvider.of<AppState>(context).dispatch(const UpdateOrderInfo());
+    }
+  }
+
+  void _responseSynchronize(AppAction action) {
+    if (action is SynchronizeCartError) {
+      print('Failed to synchronize');
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/index.dart';
 import 'package:emag_clone/src/actions/orders/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 import 'package:emag_clone/src/containers/products/index.dart';
@@ -12,6 +13,12 @@ import 'package:flutter_redux/flutter_redux.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key key}) : super(key: key);
+
+  void _response(AppAction action) {
+    if (action is SynchronizeCartError){
+      print('Failed to synchronize');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +38,7 @@ class CartPage extends StatelessWidget {
               ),
               onTap: () {
                 StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
+                StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
               },
             ),
           ),

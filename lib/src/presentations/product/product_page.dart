@@ -1,4 +1,5 @@
 import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/index.dart';
 import 'package:emag_clone/src/containers/auth/index.dart';
 
 import 'package:emag_clone/src/models/auth/index.dart';
@@ -32,6 +33,12 @@ class ProductPage extends StatelessWidget {
       _value,
       style: TextStyle(color: _color),
     );
+  }
+
+  void _response(AppAction action) {
+    if (action is SynchronizeCartError){
+      print('Failed to synchronize');
+    }
   }
 
   @override
@@ -216,6 +223,7 @@ class ProductPage extends StatelessWidget {
                 child: const Icon(Icons.shopping_cart),
                 onPressed: () {
                   StoreProvider.of<AppState>(context).dispatch(UpdateCart(addProduct: product));
+                  StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
                 },
               ),
               Container(

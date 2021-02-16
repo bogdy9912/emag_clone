@@ -93,6 +93,7 @@ class ProductItem extends StatelessWidget {
                                       .dispatch(UpdateFavoriteProducts(remove: product.id));
                                 } else {
                                   StoreProvider.of<AppState>(context).dispatch(UpdateFavoriteProducts(add: product.id));
+
                                 }
                               },
                               icon: isFavorite

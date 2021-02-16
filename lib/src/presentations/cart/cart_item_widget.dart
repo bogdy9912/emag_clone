@@ -1,4 +1,5 @@
 import 'package:emag_clone/src/actions/auth/index.dart';
+import 'package:emag_clone/src/actions/index.dart';
 import 'package:emag_clone/src/models/index.dart';
 import 'package:emag_clone/src/models/products/index.dart';
 import 'package:emag_clone/src/presentations/app_routes.dart';
@@ -10,6 +11,12 @@ class CartItemWidget extends StatelessWidget {
 
   final Product product;
   final int quantity;
+
+  void _response(AppAction action) {
+    if (action is SynchronizeCartError){
+      print('Failed to synchronize');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,12 +87,14 @@ class CartItemWidget extends StatelessWidget {
                                     icon: const Icon(Icons.keyboard_arrow_down),
                                     onPressed: () {
                                       StoreProvider.of<AppState>(context).dispatch(UpdateCart(removeProduct: product));
+                                      StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
                                     }),
                                 Text('$quantity'),
                                 IconButton(
                                     icon: const Icon(Icons.keyboard_arrow_up),
                                     onPressed: () {
                                       StoreProvider.of<AppState>(context).dispatch(UpdateCart(addProduct: product));
+                                      StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
                                     }),
                               ],
                             ),
@@ -107,6 +116,7 @@ class CartItemWidget extends StatelessWidget {
             ),
             onPressed: () {
               StoreProvider.of<AppState>(context).dispatch(UpdateCart(clearProduct: product));
+              StoreProvider.of<AppState>(context).dispatch(SynchronizeCart(response: _response));
             })
       ],
     );
