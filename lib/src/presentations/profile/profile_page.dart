@@ -73,7 +73,9 @@ class ProfilePage extends StatelessWidget {
                   Icons.map,
                   color: Colors.blue,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.myAddressesPage);
+                },
               ),
             ],
           ),

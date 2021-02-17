@@ -19,11 +19,9 @@ eMag app clone
 
 ## HomePage (120')
 * [x] search products (15')
-* [ ] highlight products per category (25') /
 * [x] add products to cart (10')
 * [ ] show all products from a category (25') /
 * [ ] filter and sorting (35')
-* [ ] presentation layout (list, grid, hero) (10') /
 
 ## Product page (90')
 * [ ] share (10')
@@ -33,12 +31,9 @@ eMag app clone
 * [ ] review comments (20')
 * [ ] ask questions (20')
 
-## Search + Categories (100')
+## Search + Categories (65')
 * [x] search products (15')
-* [ ] navigate all categories and subcategories (25')
 * [ ] recently viewed category (15')
-* [ ] filter and sorting (35')
-* [ ] presentation layout (list, grid, hero) (10')
 
 ## Shopping cart (65')
 * [x] show all products (15')
@@ -53,8 +48,8 @@ eMag app clone
 * [x] show list of favored products (15')
 
 ## Profile (90')
-* [ ] my orders (15')
-* [ ] delivery addresses (25')
+* [x] my orders (15')
+* [x] delivery addresses (25')
 * [x] edit profile (15')
 * [ ] choose what notifications to receive
 * [ ] notifications (35')
