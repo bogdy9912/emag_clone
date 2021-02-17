@@ -51,3 +51,15 @@ eMag app clone
 * [x] my orders (15')
 * [x] delivery addresses (25')
 * [x] edit profile (15')
+
+ <p float="left">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/home.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/product_detail.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/cart.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/checkout.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/payment.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/orders.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/profile.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/addresses.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/emag_clone/blob/main/photos/favorites.PNG" alt="alt text" width="200" height="400">
+</p>
