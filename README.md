@@ -47,12 +47,7 @@ eMag app clone
 ## Favorites (30')
 * [x] show list of favored products (15')
 
-## Profile (90')
+## Profile (55')
 * [x] my orders (15')
 * [x] delivery addresses (25')
 * [x] edit profile (15')
-* [ ] choose what notifications to receive
-* [ ] notifications (35')
-    * [ ] a favorite product is on sale
-    * [ ] someone commented on your review
-    * [ ] someone liked your review
