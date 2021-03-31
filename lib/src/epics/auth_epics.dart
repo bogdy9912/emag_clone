@@ -29,6 +29,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions //
         .flatMap((Login$ action) => Stream<Login$>.value(action)
             .asyncMap((Login$ event) => _auth.login(email: event.email, password: event.password))
@@ -38,6 +39,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _signUp(Stream<SignUp$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions //
         .flatMap((SignUp$ action) => Stream<SignUp$>.value(action)
             .asyncMap((SignUp$ action) => _auth.signUp(
@@ -50,6 +52,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _resetPassword(Stream<ResetPassword$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions.flatMap((ResetPassword$ action) => Stream<ResetPassword$>.value(action)
         .asyncMap((ResetPassword$ action) => _auth.resetPassword(email: action.email))
         .map((_) => const ResetPassword.successful())
@@ -57,6 +60,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _signOut(Stream<SignOut$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions.flatMap((SignOut$ action) => Stream<SignOut$>.value(action)
         .asyncMap((SignOut$ action) => _auth.signOut())
         .map((_) => const SignOut.successful())
@@ -64,6 +68,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _updateCarts(Stream<SynchronizeCart$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions //
         .flatMap((SynchronizeCart$ action) => Stream<SynchronizeCart$>.value(action)
             .asyncMap((_) => _auth.updateCart(store.state.auth.user.uid, store.state.auth.user.cart))
@@ -73,6 +78,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _initializeApp(Stream<InitializeApp$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions //
         .flatMap((InitializeApp$ action) => Stream<InitializeApp$>.value(action)
             .asyncMap((_) => _auth.initializeApp())
@@ -81,6 +87,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _updateFavoriteProducts(Stream<UpdateFavoriteProducts$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions //
         .flatMap((UpdateFavoriteProducts$ action) => Stream<UpdateFavoriteProducts$>.value(action)
             .asyncMap((UpdateFavoriteProducts$ action) =>
@@ -90,6 +97,7 @@ class AuthEpics {
   }
 
   Stream<AppAction> _updateProfileInfo(Stream<UpdateProfileInfo$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
     return actions //
         .flatMap((UpdateProfileInfo$ action) => Stream<UpdateProfileInfo$>.value(action)
             .asyncMap((UpdateProfileInfo$ action) {
